@@ -1,0 +1,125 @@
+a {
+    color: black;
+    font-size: 18px;
+    font-weight: bolder;
+}
+
+.nav-pills a {
+    border-radius: 20px;
+}
+
+.nav-link.active {
+    background-color: purple;
+}
+
+.sidenavitem:hover {
+    background-color: purple;
+    border-radius: 20px;
+}
+
+.nav-link.active i {
+    color: white;
+}
+
+.sidenavitem:hover a {
+    color: white;
+}
+
+.sidenavitem:hover i {
+    color: white;
+}
+
+.sidenavitem {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.nav {
+    border-top-right-radius: 10px;
+}
+
+i {
+    padding-right: 20px;
+    color: black;
+}
+
+.nav-link:active i {
+    color: white;
+}
+
+.superadmin {
+    margin-left: 10px;
+    box-shadow: 0px 0px 2px 2px whitesmoke;
+    color: white;
+}
+
+.hamburger {
+    margin-left: 10px;
+}
+
+.defaultnav {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.logo {
+    height: 50px;
+    width: 150px;
+}
+
+.Vertical-nav {
+    height: 100vh;
+    width: 17rem;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-y: hidden;
+    background: #6A0DAD;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.Page-content {
+    width: calc(100% - 17rem);
+    margin-left: 17rem;
+    height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.maincol {
+    overflow: hidden;
+}
+
+#sidebar.active {
+    margin-left: -17rem;
+}
+
+#content.active {
+    width: 100%;
+    margin: 0%;
+}
+
+@media only screen and (min-width:200px) and (max-width:768px) {
+    #sidebar {
+        margin-left: -17rem;
+    }
+    #content {
+        width: 100%;
+        margin: 0%;
+    }
+    #sidebar.active {
+        margin: 0%;
+    }
+    #content.active {
+        margin-left: 17rem;
+        width: calc(100% - 17rem);
+    }
+    .defaultnavleftdata {
+        display: none;
+    }
+    .logo {
+        display: none;
+    }
+}

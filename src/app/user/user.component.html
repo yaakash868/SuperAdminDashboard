@@ -1,0 +1,136 @@
+<div class="container-fluid">
+    <div class="row border border-primary">
+        <div class="col-lg-6 col-xl-6 col-md-6 col-sm-6 col-6">
+            <h3 class="header">User</h3>
+        </div>
+        <div class="col-lg-6 col-xl-6 col-md-6 col-sm-6 col-6 text-right">
+            <ng-template #content let-modal>
+                <div class="modal-header">
+                    <h4 class="modal-title" id="modal-basic-title">Create New User</h4>
+                    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                <span aria-hidden="true">&times;</span>
+              </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleInputUsername">Name</label>
+                            <input type="text" class="form-control" id="exampleInputUsername" placeholder="Enter the User Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter the Email">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter the Password">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+                </div>
+            </ng-template>
+            <button type="button" class="btn btn-light btn-lg addUserBtn" placement="top-right" ngbTooltip="Create New User" (click)="open(content)"><i class="fa fa-plus" aria-hidden="true"></i></button>
+        </div>
+    </div>
+    <div class="row border border-secondary details">
+        <div *ngFor="let user of userList" class="col-lg-3 col-xl-3 col-md-6 col-sm-12 col-12 userDetails">
+            <div class="card text-center">
+                <div class="card-header">
+                    <div>{{user.Name}}</div>
+                    <div>{{user.Email}}</div>
+                </div>
+                <div class="card-body">
+                    <div class="card-title">
+                        <div class="row">
+                            <div class="col">
+                                <ng-template #content1 let-modal>
+                                    <div class="modal-header">
+                                        <h4 class="modal-title" id="modal-basic-title">Edit Users</h4>
+                                        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                                                  <span aria-hidden="true">&times;</span>
+                                                </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form>
+                                            <div class="form-group">
+                                                <label for="exampleInputUsername">Name</label>
+                                                <input type="text" class="form-control" id="editName" placeholder="Enter the User Name">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Email address</label>
+                                                <input type="email" class="form-control" id="editEmail" placeholder="Enter the Email">
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Update</button>
+                                    </div>
+                                </ng-template>
+                                <i class="fa fa-pencil btn" placement="top" ngbTooltip="Edit" aria-hidden="true" (click)="open1(content1)"></i></div>
+                            <div class="col"><i class="fa fa-trophy btn" placement="top" ngbTooltip="Upgrade Plans" aria-hidden="true"></i></div>
+                            <div class="col"><i class="fa fa-stop-circle-o btn" placement="top" ngbTooltip="Suspend" aria-hidden="true"></i></div>
+                            <div class="col"><i class="fa fa-play-circle btn" placement="top" ngbTooltip="Resume" aria-hidden="true"></i></div>
+                            <div class="col">
+                                <ng-template #content2 let-modal>
+                                    <div class="modal-header">
+                                        <h4 class="modal-title" id="modal-basic-title">Are You Sure?</h4>
+                                        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                                        <span aria-hidden="true">&times;</span>
+                                      </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        This action can not be undone. Do you want to continue?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Cancel</button>
+                                    </div>
+                                </ng-template>
+                                <i class="fa fa-trash btn" placement="top" ngbTooltip="Delete" aria-hidden="true" (click)="open2(content2)"></i></div>
+                        </div>
+                    </div>
+                    <div class="card-text">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-6">
+                                <div>
+                                    <h5 class="card-title">Employee</h5>
+                                    <p class="card-text">{{user.employeeCount}}</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-6 px-0">
+                                <div>
+                                    <h5 class="card-title">Client</h5>
+                                    <p class="card-text">{{user.ClientCount}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer text-muted text-left">
+                    <p>Plan:{{user.Plan}}</p>
+                    <p>Plan Expired : {{user.Planexpired}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row footer border border-danger">
+        <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12 copyright"><i class="fa fa-copyright" aria-hidden="true"></i> Copyright Midan.sa 2022</div>
+        <div class="col-xl-2 col-lg-2 col-md-12 col-sm-12 col-12 text-center language">
+            <div ngbDropdown class="dropdown show">
+                <button ngbDropdownToggle type="button" class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Language</button>
+                <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a ngbDropdownItem class="dropdown-item" href="#">English</a>
+                    <div class="dropdown-divider"></div>
+                    <a ngbDropdownItem class="dropdown-item" href="#">Arabic</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-1 col-lg-1 col-md-12 col-sm-12 col-12 text-center terms">
+            <a href="">Term</a>
+        </div>
+        <div class="col-xl-1 col-lg-1 col-md-12 col-sm-12 col-12 text-center privacy">
+            <a href="">Privacy</a>
+        </div>
+    </div>
+</div>

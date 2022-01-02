@@ -1,0 +1,47 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 pl-0 pr-0">
+            <div class="Vertical-nav float-left" id="sidebar">
+                <ul class="nav nav-pills flex-column">
+                    <li class="nav-item sidenavitem">
+                        <a class="nav-link" data-toggle="pill" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" routerLink="/"><i class="fa fa-home" aria-hidden="true"></i>Dashboard</a>
+                    </li>
+                    <li class="nav-item sidenavitem">
+                        <a class="nav-link" data-toggle="pill" routerLinkActive="active" routerLink="/User"><i class="fa fa-users" aria-hidden="true"></i>User</a>
+                    </li>
+                    <li class="nav-item sidenavitem">
+                        <a class="nav-link" data-toggle="pill" routerLinkActive="active" routerLink="/Plan"><i class="fa fa-trophy" aria-hidden="true"></i>Plan</a>
+                    </li>
+                    <li class="nav-item sidenavitem">
+                        <a class="nav-link" data-toggle="pill" routerLinkActive="active" routerLink="/PlanRequest"><i class="fa fa-paper-plane-o" aria-hidden="true"></i>Plan Request</a>
+                    </li>
+                    <li class="nav-item sidenavitem">
+                        <a class="nav-link" data-toggle="pill" routerLinkActive="active" routerLink="/Setting"><i class="fa fa-cogs" aria-hidden="true"></i>Setting</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="Page-content" id="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 pl-0 pr-0 defaultheader">
+                            <nav class="navbar navbar-expand navbar-light bg-light defaultnav">
+                                <a class="navbar-brand btn hamburger" id="hamburger"><span class="navbar-toggler-icon" id="sidebarcollapse"></span></a>
+                                <ul class="navbar-nav mr-auto">
+                                    <li class="nav-item active">
+                                        <button class="btn btn-primary superadmin" data-toggle="popover" data-placement="bottom" data-trigger="focus" popoverTitle="Hi,Super Admin" ngbPopover="hello"> Super Admin</button>
+                                    </li>
+                                </ul>
+                                <img [src]="myimg" alt="" class="img-fluid logo">
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 pl-0 pr-0">
+                            <router-outlet></router-outlet>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
