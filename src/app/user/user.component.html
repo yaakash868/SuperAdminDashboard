@@ -11,25 +11,47 @@
                 <span aria-hidden="true">&times;</span>
               </button>
                 </div>
+                <form (ngSubmit)="onAddUser(f.value)" #f="ngForm">
                 <div class="modal-body">
-                    <form>
                         <div class="form-group">
                             <label for="exampleInputUsername">Name</label>
-                            <input type="text" class="form-control" id="exampleInputUsername" placeholder="Enter the User Name">
+                            <input type="text" 
+                                class="form-control" 
+                                id="exampleInputUsername" 
+                                placeholder="Enter the User Name"
+                                ngModel
+                                name="Name"
+                                required>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter the Email">
+                            <input type="email" 
+                                class="form-control" 
+                                id="exampleInputEmail1" 
+                                placeholder="Enter the Email"
+                                ngModel
+                                name="Email"
+                                email
+                                #email="ngModel"
+                                required>
+                                <span style="color:red;" *ngIf="!email.valid && email.touched">Please enter valid email address</span>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter the Password">
+                            <input type="password" 
+                                class="form-control" 
+                                id="exampleInputPassword1" 
+                                placeholder="Enter the Password"
+                                ngModel
+                                name="Password"
+                                required>
                         </div>
-                    </form>
+                    
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+                    <button type="submit" [disabled]="!f.valid" (click)="modal.close('Save click')" class="btn btn-outline-dark" >Save</button>
                 </div>
+            </form>
             </ng-template>
             <button type="button" class="btn btn-light btn-lg addUserBtn" placement="top-right" ngbTooltip="Create New User" (click)="open(content)"><i class="fa fa-plus" aria-hidden="true"></i></button>
         </div>
@@ -46,6 +68,7 @@
                         <div class="row">
                             <div class="col">
                                 <ng-template #content1 let-modal>
+                                    <form (ngSubmit)="onUpdateUser(userDataUpdate.value,user.UserId)" #userDataUpdate="ngForm" autocomplete="off">
                                     <div class="modal-header">
                                         <h4 class="modal-title" id="modal-basic-title">Edit Users</h4>
                                         <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
@@ -53,20 +76,37 @@
                                                 </button>
                                     </div>
                                     <div class="modal-body">
-                                        <form>
                                             <div class="form-group">
                                                 <label for="exampleInputUsername">Name</label>
-                                                <input type="text" class="form-control" id="editName" placeholder="Enter the User Name">
+                                                <input type="text" 
+                                                    [ngModel]="user.Name" 
+                                                    class="form-control" 
+                                                    id="editName" 
+                                                    placeholder="Enter the User Name"
+                                                    name="Name"
+                                                    required
+                                                    ngModel>
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Email address</label>
-                                                <input type="email" class="form-control" id="editEmail" placeholder="Enter the Email">
+                                                <input type="email" 
+                                                [ngModel]="user.Email" 
+                                                class="form-control" 
+                                                id="editEmail" 
+                                                placeholder="Enter the Email"
+                                                required
+                                                email
+                                                name="Email"
+                                                #email="ngModel"
+                                                ngModel
+                                                >
+                                                <span style="color:red;" *ngIf="!email.valid && email.touched">Please enter valid email address</span>
                                             </div>
-                                        </form>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Update</button>
+                                        <button type="submit" [disabled]="!userDataUpdate.valid" class="btn btn-outline-dark" (click)="modal.close('Save click')">Update</button>
                                     </div>
+                                </form>
                                 </ng-template>
                                 <i class="fa fa-pencil btn" placement="top" ngbTooltip="Edit" aria-hidden="true" (click)="open1(content1)"></i></div>
                             <div class="col"><i class="fa fa-trophy btn" placement="top" ngbTooltip="Upgrade Plans" aria-hidden="true"></i></div>
@@ -84,7 +124,8 @@
                                         This action can not be undone. Do you want to continue?
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Cancel</button>
+                                        <button type="button" class="btn btn-outline-dark" (click)="onDeleteUser(user.UserId);modal.close('Save click')">Yes</button>
+                                        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Cross click')">No</button>
                                     </div>
                                 </ng-template>
                                 <i class="fa fa-trash btn" placement="top" ngbTooltip="Delete" aria-hidden="true" (click)="open2(content2)"></i></div>
@@ -95,7 +136,7 @@
                             <div class="col-lg-6 col-md-6 col-sm-6 col-6">
                                 <div>
                                     <h5 class="card-title">Employee</h5>
-                                    <p class="card-text">{{user.employeeCount}}</p>
+                                    <p class="card-text">{{user.EmployeeCount}}</p>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-6 px-0">
@@ -109,7 +150,7 @@
                 </div>
                 <div class="card-footer text-muted text-left">
                     <p>Plan:{{user.Plan}}</p>
-                    <p>Plan Expired : {{user.Planexpired}}</p>
+                    <p>Plan Expired : {{user.PlanExpired}}</p>
                 </div>
             </div>
         </div>
