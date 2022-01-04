@@ -15,9 +15,9 @@
                 <div class="modal-body">
                         <div class="form-group">
                             <label for="exampleInputUsername">Name</label>
-                            <input type="text" 
-                                class="form-control" 
-                                id="exampleInputUsername" 
+                            <input type="text"
+                                class="form-control"
+                                id="exampleInputUsername"
                                 placeholder="Enter the User Name"
                                 ngModel
                                 name="Name"
@@ -25,9 +25,9 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Email address</label>
-                            <input type="email" 
-                                class="form-control" 
-                                id="exampleInputEmail1" 
+                            <input type="email"
+                                class="form-control"
+                                id="exampleInputEmail1"
                                 placeholder="Enter the Email"
                                 ngModel
                                 name="Email"
@@ -38,15 +38,15 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Password</label>
-                            <input type="password" 
-                                class="form-control" 
-                                id="exampleInputPassword1" 
+                            <input type="password"
+                                class="form-control"
+                                id="exampleInputPassword1"
                                 placeholder="Enter the Password"
                                 ngModel
                                 name="Password"
                                 required>
                         </div>
-                    
+
                 </div>
                 <div class="modal-footer">
                     <button type="submit" [disabled]="!f.valid" (click)="modal.close('Save click')" class="btn btn-outline-dark" >Save</button>
@@ -78,27 +78,25 @@
                                     <div class="modal-body">
                                             <div class="form-group">
                                                 <label for="exampleInputUsername">Name</label>
-                                                <input type="text" 
-                                                    [ngModel]="user.Name" 
-                                                    class="form-control" 
-                                                    id="editName" 
+                                                <input type="text"
+                                                    [ngModel]="user.Name"
+                                                    class="form-control"
+                                                    id="editName"
                                                     placeholder="Enter the User Name"
                                                     name="Name"
-                                                    required
-                                                    ngModel>
+                                                    required>
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Email address</label>
-                                                <input type="email" 
-                                                [ngModel]="user.Email" 
-                                                class="form-control" 
-                                                id="editEmail" 
+                                                <input type="email"
+                                                [ngModel]="user.Email"
+                                                class="form-control"
+                                                id="editEmail"
                                                 placeholder="Enter the Email"
                                                 required
                                                 email
                                                 name="Email"
                                                 #email="ngModel"
-                                                ngModel
                                                 >
                                                 <span style="color:red;" *ngIf="!email.valid && email.touched">Please enter valid email address</span>
                                             </div>

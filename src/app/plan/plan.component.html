@@ -1,1 +1,279 @@
-<p>plan works!</p>
+<div class="container-fluid">
+    <div class="row border border-primary">
+        <div class="col-lg-6 col-xl-6 col-md-6 col-sm-6 col-6">
+            <h3 class="header">Plan</h3>
+        </div>
+        <div class="col-lg-6 col-xl-6 col-md-6 col-sm-6 col-6 text-right">
+            <ng-template #content let-modal>
+              <form (ngSubmit)="onAddPlan(AddPlanData.value)" #AddPlanData="ngForm">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="modal-basic-title">Create New Plan</h4>
+                    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                    <div class="modal-body">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="planName">Name</label>
+                                <input type="text"
+                                  id="planName"
+                                  class="form-control"
+                                  placeholder="Enter Plan Name."
+                                  ngModel
+                                  name="PlanName"
+                                  required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="planPrice">Price</label>
+                                <input type="number"
+                                  class="form-control"
+                                  id="planPrice"
+                                  placeholder="Enter Plan Price."
+                                  ngModel
+                                  name="Price"
+                                  required
+                                  min="0"
+                                  #price="ngModel"
+                                  >
+                                  <span *ngIf="price.invalid && price.touched" class="ErrorSpan">Minimum price should not be negative</span>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="maximumEmployee">Maximum Employee</label>
+                                <input type="number"
+                                  class="form-control"
+                                  id="maximumEmployee"
+                                  min="1"
+                                  max="500"
+                                  ngModel
+                                  name="EmployeeCount"
+                                  required
+                                  #empcnt="ngModel">
+                                  <span *ngIf="empcnt.invalid && empcnt.touched" class="ErrorSpan">range should be between 1 to 500</span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="maximumClient">Maximum Client</label>
+                                <input type="number"
+                                class="form-control"
+                                id="maximumClient"
+                                min="1"
+                                max="500"
+                                ngModel
+                                name="ClientCount"
+                                required
+                                #cltcnt="ngModel">
+                                <span *ngIf="cltcnt.invalid && cltcnt.touched" class="ErrorSpan">range should be between 1 to 500</span>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="Duration">Duration</label>
+                                <select
+                                  class="form-control"
+                                  id="Duration"
+                                  ngModel
+                                  name="Duration"
+                                  required>
+                                  <option value="0" selected disabled>Select..</option>
+                                      <option *ngFor="let planDuration of planDurationList" [value]="planDuration.PlanDurationId">{{getPlanDurationDescriptionById(planDuration.PlanDurationId)}}</option>
+                                    </select>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <div class="form-group">
+                                    <label for="Image">Image</label>
+                                    <input
+                                      type="file"
+                                      class="form-control-file"
+                                      id="Image"
+                                      ngModel
+                                      name="ImageUrl"
+                                      required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-12">
+                                <label for="Description">Description</label>
+                                <textarea class="form-control"
+                                id="Description"
+                                rows="3"
+                                ngModel
+                                name="Description"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button [disabled]="AddPlanData.invalid" type="submit" (click)="modal.close('Save click')" class="btn btn-outline-dark">Save</button>
+                    </div>
+                </form>
+            </ng-template>
+            <button type="button" class="btn btn-light btn-lg addUserBtn" placement="top-right" ngbTooltip="Create New User" (click)="open(content)"><i class="fa fa-plus" aria-hidden="true"></i></button>
+        </div>
+    </div>
+    <div class="row border border-secondary details">
+        <div *ngFor="let plan of PlanList" class="col-lg-3 col-xl-3 col-md-6 col-sm-12 col-12 userDetails">
+            <div class="card">
+                <div class="card-header">
+                    <div class="float-left planName">{{plan.PlanName}}</div>
+                    <ng-template #content1 let-modal>
+                      <form (ngSubmit)="onUpdateUser(UpdateUserDate.value,plan.PlanId)" #UpdateUserDate="ngForm">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="modal-basic-title">Create New Plan</h4>
+                            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                            <div class="modal-body">
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="planName1">Name</label>
+                                        <input type="text"
+                                          class="form-control"
+                                          id="planName"
+                                          placeholder="Change Plan Name."
+                                          [ngModel]="plan.PlanName"
+                                          name="PlanName"
+                                          required
+                                          >
+                                    </div>
+
+                                      <div class="form-group col-md-6">
+                                        <label for="planPrice">Price</label>
+                                        <input type="number"
+                                          class="form-control"
+                                          id="planPrice"
+                                          placeholder="Enter Plan Price."
+                                          [ngModel]="plan.Price"
+                                          name="Price"
+                                          required
+                                          min="0"
+                                          #price="ngModel"
+                                          >
+                                          <span *ngIf="price.invalid && price.touched" class="ErrorSpan">Minimum price should not be negative</span>
+                                    </div>
+                                  </div>
+                                    <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="maximumEmployee1">Maximum Employee</label>
+                                        <input type="number"
+                                          class="form-control"
+                                          id="maximumEmployee1"
+                                          min="1"
+                                          max="500"
+                                          [ngModel]="plan.EmployeeCount"
+                                          name="EmployeeCount"
+                                          required
+                                          #empcnt="ngModel"
+                                        >
+                                        <span *ngIf="empcnt.invalid && empcnt.touched" class="ErrorSpan">range should between 1 to 500</span>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="maximumClient1">Maximum Client</label>
+                                        <input type="number"
+                                          class="form-control"
+                                          id="maximumClient1"
+                                          min="1"
+                                          max="500"
+                                          [ngModel]="plan.ClientCount"
+                                          name="ClientCount"
+                                          required
+                                          #cltcnt="ngModel"
+                                          >
+                                          <span *ngIf="cltcnt.invalid && cltcnt.touched" class="ErrorSpan">range should between 1 to 500</span>
+                                    </div>
+                                  </div>
+                                  <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="Duration1">Duration</label>
+                                        <select
+                                          class="form-control"
+                                          id="Duration1"
+                                          [ngModel]="plan.Duration"
+                                          name="Duration"
+                                          required>
+                                      <option value="" selected disabled>Select..</option>
+                                      <option *ngFor="let planDuration of planDurationList" [value]="planDuration.PlanDurationId">{{getPlanDurationDescriptionById(planDuration.PlanDurationId)}}</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <div class="form-group">
+                                            <label for="Image1">Image</label>
+                                            <input type="file"
+                                              class="form-control-file"
+                                              id="Image1"
+                                              [ngModel]
+                                              name="ImageUrl"
+                                              required>
+                                        </div>
+                                    </div>
+                                  </div>
+                                <div class="form-row">
+                                    <div class="form-group col-12">
+                                        <label for="Description1">Description</label>
+                                        <textarea
+                                          class="form-control"
+                                          id="Description1"
+                                          rows="3"
+                                          [ngModel]="plan.Description"
+                                          name="Description"
+                                          ></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" [disabled]="UpdateUserDate.invalid" (click)="modal.close('Save click')" class="btn btn-outline-dark">Save</button>
+                            </div>
+                        </form>
+                    </ng-template>
+                    <div class="float-right"><i class="fa fa-pencil-square-o btn btn-light btn-sm" (click)="open1(content1)" aria-hidden="true"></i></div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="card-body">
+                    <img src="{{plan.ImageUrl}}" alt="" class="img-fluid rounded-circle free">
+                    <div class="py-2 unlimited">{{plan.Price | currency:"USD"}}/ {{getPlanDurationDescriptionById(plan.Duration)}}</div>
+                    <div class="discription">{{plan.Description}}</div>
+                    <div *ngIf="plan.VisibleDescription"><i class="fa fa-share btn btn-primary rounded-circle" aria-hidden="true"></i></div>
+                </div>
+                <div class="card-footer text-center">
+                    <div class="card-text">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-6">
+                                <div>
+                                    <h5 class="card-title">Employee</h5>
+                                    <p class="card-text">{{plan.EmployeeCount}}</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-6 px-0">
+                                <div>
+                                    <h5 class="card-title">Client</h5>
+                                    <p class="card-text">{{plan.ClientCount}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row footer border border-danger">
+        <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12 copyright"><i class="fa fa-copyright" aria-hidden="true"></i> Copyright Midan.sa 2022</div>
+        <div class="col-xl-2 col-lg-2 col-md-12 col-sm-12 col-12 text-center language">
+            <div ngbDropdown class="dropdown show">
+                <button ngbDropdownToggle type="button" class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Language</button>
+                <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a ngbDropdownItem class="dropdown-item" href="#">English</a>
+                    <div class="dropdown-divider"></div>
+                    <a ngbDropdownItem class="dropdown-item" href="#">Arabic</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-1 col-lg-1 col-md-12 col-sm-12 col-12 text-center terms">
+            <a href="">Term</a>
+        </div>
+        <div class="col-xl-1 col-lg-1 col-md-12 col-sm-12 col-12 text-center privacy">
+            <a href="">Privacy</a>
+        </div>
+    </div>
+</div>
