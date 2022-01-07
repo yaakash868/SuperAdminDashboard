@@ -1,71 +1,22 @@
 export class UserModel {
- private _userId:number;
+ public userId:number;
 
- get UserId():number{
-   return this._userId;
- }
- set UserId(userId:number){
-   this._userId=userId;
- }
-  private _name:string;
-  get Name():string{
-    return this._name;
-  }
-  set Name(name:string){
-    this._name=name;
-  }
+  public name:string;
 
-  private _email:string;
-  get Email():string{
-    return this._email;
-  }
-  set Email(email:string){
-    this._email=email;
-  }
-  
-  private _employeeCount:number;
-  get EmployeeCount():number{
-    return this._employeeCount;
-  }
-  set EmployeeCount(employeeCount:number){
-    this._employeeCount=employeeCount;
-  }
+  public email:string;
 
-  private _clientCount:number;
-  get ClientCount():number{
-    return this._clientCount;
-  }
-  set ClientCount(clientCount:number){
-    this._clientCount = clientCount;
-  }
+  public employeeCount:number;
 
-  private _plan:string;
-  get Plan():string{
-    return this._plan;
-  }
-  set Plan(plan:string){
-    this._plan = plan;
-  }
+  public clientCount:number;
 
-  private _planexpired:string;
-  get PlanExpired():string{
-    return this._planexpired;
-  }
-  set PlanExpired(planExpired:string){
-    this._planexpired = planExpired;
-  }
+  public plan:string;
 
-  private _password:string;
-  get Password():string{
-    return this._password;
-  }
-  set Password(password:string){
-    this._password = password;
-  }
+  public planExpired:string;
 
+  public password:string;
 
   constructor(
-    userId:number,
+  userId:number,
   name:string,
   email:string,
   employeeCount:number,
@@ -75,13 +26,13 @@ export class UserModel {
   password:string,
   )
   {
-    this._userId=userId;
-    this._name= name;
-   this._email=email;
-    this._employeeCount=employeeCount;
-   this._clientCount=clientCount;
-    this._plan=plan;
-    this._planexpired=planexpired;
-    this._password=password;
+    this.userId=userId;
+    this.name= name;
+    this.email=email;
+    this.employeeCount=employeeCount;
+    this.clientCount=clientCount;
+    this.plan=plan;
+    this.planExpired=planexpired;
+    this.password=password;
   }
 }

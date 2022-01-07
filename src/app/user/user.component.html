@@ -12,46 +12,26 @@
               </button>
                 </div>
                 <form (ngSubmit)="onAddUser(f.value)" #f="ngForm">
-                <div class="modal-body">
+                    <div class="modal-body">
                         <div class="form-group">
                             <label for="exampleInputUsername">Name</label>
-                            <input type="text"
-                                class="form-control"
-                                id="exampleInputUsername"
-                                placeholder="Enter the User Name"
-                                ngModel
-                                name="Name"
-                                required>
+                            <input type="text" class="form-control" id="exampleInputUsername" placeholder="Enter the User Name" ngModel name="Name" required>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Email address</label>
-                            <input type="email"
-                                class="form-control"
-                                id="exampleInputEmail1"
-                                placeholder="Enter the Email"
-                                ngModel
-                                name="Email"
-                                email
-                                #email="ngModel"
-                                required>
-                                <span style="color:red;" *ngIf="!email.valid && email.touched">Please enter valid email address</span>
+                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter the Email" ngModel name="Email" email #email="ngModel" required>
+                            <span style="color:red;" *ngIf="!email.valid && email.touched">Please enter valid email address</span>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Password</label>
-                            <input type="password"
-                                class="form-control"
-                                id="exampleInputPassword1"
-                                placeholder="Enter the Password"
-                                ngModel
-                                name="Password"
-                                required>
+                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter the Password" ngModel name="Password" required>
                         </div>
 
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" [disabled]="!f.valid" (click)="modal.close('Save click')" class="btn btn-outline-dark" >Save</button>
-                </div>
-            </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" [disabled]="!f.valid" (click)="modal.close('Save click')" class="btn btn-outline-dark">Save</button>
+                    </div>
+                </form>
             </ng-template>
             <button type="button" class="btn btn-light btn-lg addUserBtn" placement="top-right" ngbTooltip="Create New User" (click)="open(content)"><i class="fa fa-plus" aria-hidden="true"></i></button>
         </div>
@@ -60,54 +40,61 @@
         <div *ngFor="let user of userList" class="col-lg-3 col-xl-3 col-md-6 col-sm-12 col-12 userDetails">
             <div class="card text-center">
                 <div class="card-header">
-                    <div>{{user.Name}}</div>
-                    <div>{{user.Email}}</div>
+                    <div>{{user.name}}</div>
+                    <div>{{user.email}}</div>
                 </div>
                 <div class="card-body">
                     <div class="card-title">
                         <div class="row">
                             <div class="col">
                                 <ng-template #content1 let-modal>
-                                    <form (ngSubmit)="onUpdateUser(userDataUpdate.value,user.UserId)" #userDataUpdate="ngForm" autocomplete="off">
-                                    <div class="modal-header">
-                                        <h4 class="modal-title" id="modal-basic-title">Edit Users</h4>
-                                        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                                    <form (ngSubmit)="onUpdateUser(userDataUpdate.value,user.userId)" #userDataUpdate="ngForm" autocomplete="off">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title" id="modal-basic-title">Edit Users</h4>
+                                            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
                                                   <span aria-hidden="true">&times;</span>
                                                 </button>
-                                    </div>
-                                    <div class="modal-body">
+                                        </div>
+                                        <div class="modal-body">
                                             <div class="form-group">
                                                 <label for="exampleInputUsername">Name</label>
-                                                <input type="text"
-                                                    [ngModel]="user.Name"
-                                                    class="form-control"
-                                                    id="editName"
-                                                    placeholder="Enter the User Name"
-                                                    name="Name"
-                                                    required>
+                                                <input type="text" [ngModel]="user.name" class="form-control" id="editName" placeholder="Enter the User Name" name="Name" required>
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Email address</label>
-                                                <input type="email"
-                                                [ngModel]="user.Email"
-                                                class="form-control"
-                                                id="editEmail"
-                                                placeholder="Enter the Email"
-                                                required
-                                                email
-                                                name="Email"
-                                                #email="ngModel"
-                                                >
+                                                <input type="email" [ngModel]="user.email" class="form-control" id="editEmail" placeholder="Enter the Email" required email name="Email" #email="ngModel">
                                                 <span style="color:red;" *ngIf="!email.valid && email.touched">Please enter valid email address</span>
                                             </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="submit" [disabled]="!userDataUpdate.valid" class="btn btn-outline-dark" (click)="modal.close('Save click')">Update</button>
-                                    </div>
-                                </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="submit" [disabled]="!userDataUpdate.valid" class="btn btn-outline-dark" (click)="modal.close('Save click')">Update</button>
+                                        </div>
+                                    </form>
                                 </ng-template>
                                 <i class="fa fa-pencil btn" placement="top" ngbTooltip="Edit" aria-hidden="true" (click)="open1(content1)"></i></div>
-                            <div class="col"><i class="fa fa-trophy btn" placement="top" ngbTooltip="Upgrade Plans" aria-hidden="true"></i></div>
+                            <div class="col"><i (click)="open3(content3)" class="fa fa-trophy btn" placement="top" ngbTooltip="Upgrade Plans" aria-hidden="true"></i>
+                              <ng-template #content3 let-modal>
+                                <div class="modal-header">
+                                  <h4 class="modal-title">Upgrade Plans</h4>
+                                  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                  <div class="card bm-5" *ngFor="let plan of getPlanList()">
+                                    <div class="card-body">
+                                      <div class="row">
+                                      <div class="col">{{plan.planName}}</div>
+                                      <div class="col">{{plan.employeeCount}} Employees</div>
+                                      <div class="col">{{plan.clientCount}} Clients</div>
+                                      <div class="col">{{plan.price | currency:"USD"}} / {{getPlanDurationDescriptionById(plan.duration)}}</div>
+                                      <div class="col"><i class="fa fa-shopping-cart btn" aria-hidden="true"></i></div>
+                                    </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </ng-template>
+                            </div>
                             <div class="col"><i class="fa fa-stop-circle-o btn" placement="top" ngbTooltip="Suspend" aria-hidden="true"></i></div>
                             <div class="col"><i class="fa fa-play-circle btn" placement="top" ngbTooltip="Resume" aria-hidden="true"></i></div>
                             <div class="col">
@@ -122,7 +109,7 @@
                                         This action can not be undone. Do you want to continue?
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-outline-dark" (click)="onDeleteUser(user.UserId);modal.close('Save click')">Yes</button>
+                                        <button type="button" class="btn btn-outline-dark" (click)="onDeleteUser(user.userId);modal.close('Save click')">Yes</button>
                                         <button type="button" class="btn btn-outline-dark" (click)="modal.close('Cross click')">No</button>
                                     </div>
                                 </ng-template>
@@ -134,42 +121,24 @@
                             <div class="col-lg-6 col-md-6 col-sm-6 col-6">
                                 <div>
                                     <h5 class="card-title">Employee</h5>
-                                    <p class="card-text">{{user.EmployeeCount}}</p>
+                                    <p class="card-text">{{user.employeeCount}}</p>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-6 px-0">
                                 <div>
                                     <h5 class="card-title">Client</h5>
-                                    <p class="card-text">{{user.ClientCount}}</p>
+                                    <p class="card-text">{{user.clientCount}}</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="card-footer text-muted text-left">
-                    <p>Plan:{{user.Plan}}</p>
-                    <p>Plan Expired : {{user.PlanExpired}}</p>
+                    <p>Plan:{{user.plan}}</p>
+                    <p>Plan Expired : {{user.planExpired}}</p>
                 </div>
             </div>
         </div>
     </div>
-    <div class="row footer border border-danger">
-        <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12 copyright"><i class="fa fa-copyright" aria-hidden="true"></i> Copyright Midan.sa 2022</div>
-        <div class="col-xl-2 col-lg-2 col-md-12 col-sm-12 col-12 text-center language">
-            <div ngbDropdown class="dropdown show">
-                <button ngbDropdownToggle type="button" class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Language</button>
-                <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a ngbDropdownItem class="dropdown-item" href="#">English</a>
-                    <div class="dropdown-divider"></div>
-                    <a ngbDropdownItem class="dropdown-item" href="#">Arabic</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-1 col-lg-1 col-md-12 col-sm-12 col-12 text-center terms">
-            <a href="">Term</a>
-        </div>
-        <div class="col-xl-1 col-lg-1 col-md-12 col-sm-12 col-12 text-center privacy">
-            <a href="">Privacy</a>
-        </div>
-    </div>
+
 </div>

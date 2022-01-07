@@ -1,31 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 
-import * as $ from 'jquery';
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-site-setting',
+  templateUrl: './site-setting.component.html',
+  styleUrls: ['./site-setting.component.css']
 })
-export class AppComponent implements OnInit {
-  title = 'SuperAdmin';
-  CurrentSiteInfo:object = {"SiteTitle":""
-                    ,"SiteFooterTitle1":"Terms"
-                    ,"SiteFooterLink1":""
-                    ,"SiteFooterTitle2":"Services"
-                    ,"SiteFooterLink2":""
-                    ,"SiteFooterText":"Copyright Midan.sa 2022"
-                    ,"SiteLanguage":"English"};
-  myimg:string="assets/Images/midanlogo.png";
-  constructor() {
-    localStorage.setItem("SiteInfo",JSON.stringify(this.CurrentSiteInfo));
-  }
+export class SiteSettingComponent implements OnInit {
+
+  constructor() { }
+
   ngOnInit(): void {
-      $(function()
-      {
-        $('#hamburger').on('click', function(){
-          $('#sidebar, #content').toggleClass('active');
-        });
-      });
+  }
+  onSubmit(data:any){
+    console.log(data);
+    localStorage.setItem("SiteInfo",JSON.stringify(data));
   }
   getSiteTitleText():string{
     return <string>JSON.parse(<string>localStorage.getItem("SiteInfo")).SiteTitle;

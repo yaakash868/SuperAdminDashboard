@@ -39,6 +39,27 @@
                         <div class="col-12 pl-0 pr-0">
                             <router-outlet></router-outlet>
                         </div>
+                        <div class="col-12 border  border-primary">
+                          <div class="row footer">
+                            <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12 copyright"><i class="fa fa-copyright font-weight-bolder" aria-hidden="true"> {{getSiteFooterText()}}</i></div>
+                            <div class="col-xl-2 col-lg-2 col-md-12 col-sm-12 col-12 text-center language">
+                                <div ngbDropdown class="dropdown show">
+                                    <button ngbDropdownToggle type="button" class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Language</button>
+                                    <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        <a ngbDropdownItem class="dropdown-item" href="#">English</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a ngbDropdownItem class="dropdown-item" href="#">Arabic</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-1 col-lg-1 col-md-12 col-sm-12 col-12 text-center terms">
+                                <a [href]="getSiteFooterLink1()">{{getSiteFooterTitle1()}}</a>
+                            </div>
+                            <div class="col-xl-1 col-lg-1 col-md-12 col-sm-12 col-12 text-center privacy">
+                                <a [href]="getSiteFooterLink2()">{{getSiteFooterTitle2()}}</a>
+                            </div>
+                        </div>
+                        </div>
                     </div>
                 </div>
             </div>

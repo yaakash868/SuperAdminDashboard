@@ -123,3 +123,50 @@ i {
         display: none;
     }
 }
+
+
+.copyright {
+  font-size: 17px;
+  font-weight: bolder;
+  padding-top: 5px;
+  color: #13294B;
+}
+
+.terms {
+  padding-top: 5px;
+}
+
+.terms a {
+  font-size: 17px;
+  color: #13294B;
+  font-weight: bolder;
+}
+
+.privacy {
+  padding-top: 5px;
+}
+
+.privacy a {
+  font-size: 17px;
+  color: #13294B;
+  font-weight: bolder;
+}
+
+@media only screen and (min-width:200px) and (max-width:992px) {
+  .footer {
+      padding-top: 5px;
+      padding-bottom: 10px;
+  }
+  .copyright {
+      padding-bottom: 5px;
+  }
+  .language {
+      padding-bottom: 5px;
+  }
+  .terms {
+      padding-bottom: 5px;
+  }
+  .privacy {
+      padding-bottom: 5px;
+  }
+}

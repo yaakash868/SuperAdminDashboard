@@ -2,8 +2,8 @@
     color: #13294B;
     font-weight: bolder;
     padding-top: 10px;
-    padding-bottom: 10px;
     font-weight: bolder;
+    font-size: 25px;
 }
 
 .card-title {
@@ -42,6 +42,7 @@
 
 .addUserBtn {
     margin-top: 5px;
+    margin-bottom: 5px;
     border-radius: 30px;
 }
 
@@ -110,6 +111,6 @@
     }
 }
 
-input.ng-invalid.ng-touched{
+input.ng-invalid.ng-touched {
     border: 1px solid red;
 }

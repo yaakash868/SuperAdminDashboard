@@ -1,9 +1,3 @@
-h3 {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    font-weight: bolder;
-}
-
 .card {
     display: flex;
 }
@@ -38,6 +32,9 @@ h3 {
 
 .header {
     color: #13294B;
+    font-weight: bolder;
+    font-size: 25px;
+    padding-top: 10px;
     font-weight: bolder;
 }
 

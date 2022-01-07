@@ -9,13 +9,16 @@ import { PlanModel,PlanDurationModel } from '../Models/PlanModel';
 export class PlanComponent implements OnInit {
   closeResult = '';
   closeResult1 = '';
-  Free = "assets/Images/Free.jpg";
+
   planDurationList=[
     new PlanDurationModel(1,"Unlimited"),
     new PlanDurationModel(2,"Year"),
     new PlanDurationModel(3,"Month")
-  ]
-  constructor(private modalService: NgbModal, private modalService1: NgbModal) { }
+  ];
+  constructor(private modalService: NgbModal, private modalService1: NgbModal) {
+    localStorage.setItem("PlanList",JSON.stringify(<PlanModel[]>this.PlanList));
+    localStorage.setItem("planDurationList",JSON.stringify(<PlanDurationModel[]>this.planDurationList));
+   }
   ngOnInit(): void {
   }
   open(content:any) {
@@ -56,8 +59,8 @@ export class PlanComponent implements OnInit {
     let maxId = 0;
     console.log(data);
     this.PlanList.forEach(plan => {
-      if(plan.PlanId>maxId){
-        maxId=plan.PlanId;
+      if(plan.planId>maxId){
+        maxId=plan.planId;
       }
     });
     this.PlanList.push(new PlanModel(maxId+1
@@ -69,32 +72,47 @@ export class PlanComponent implements OnInit {
                                     ,data.ImageUrl
                                     ,data.Description
                                     ,true));
+    this.UpdatePlanListGlobally(this.PlanList);
   }
 
   //while getting plan duration description
   getPlanDurationDescriptionById(id:number):string{
     let desc=""
     this.planDurationList.forEach(pd => {
-      if(pd.PlanDurationId == id){
-        desc=pd.PlanDurationText;
+      if(pd.planDurationId == id){
+        desc=pd.planDurationText;
       }
     });
     return desc;
   }
 
   //while editing user
-  onUpdateUser(data:any,id:number){
-    let plan = this.PlanList.find(x=> x.PlanId == id);
+  onUpdatePlan(data:any,id:number){
     this.PlanList.forEach(p => {
-      if(p.PlanId==id){
-        p.ClientCount=data.ClientCount;
-        p.Description=data.Description;
-        p.Duration = data.Duration;
-        p.EmployeeCount = data.EmployeeCount;
-        p.ImageUrl = data.ImageUrl;
-        p.PlanName = data.PlanName;
-        p.Price = data.Price;
+      if(p.planId==id){
+        p.clientCount = data.ClientCount;
+        p.description = data.Description;
+        p.duration = data.Duration;
+        p.employeeCount = data.EmployeeCount;
+        p.imageUrl = data.ImageUrl;
+        p.planName = data.PlanName;
+        p.price = data.Price;
       }
     });
+    this.UpdatePlanListGlobally(this.PlanList);
+  }
+
+  PlanRequestIdList:PlanModel[]=<PlanModel[]>(localStorage.getItem("PlanRequestList")==null?[]:JSON.parse(<string>localStorage.getItem("PlanRequestList")));
+
+
+  //on clicking send plan request
+  onSendPlanRequest(id:number){
+
+    this.PlanRequestIdList.push(<PlanModel>this.PlanList.find(x=>x.planId == id));
+    localStorage.setItem("PlanRequestList",JSON.stringify(this.PlanRequestIdList));
+  }
+
+  UpdatePlanListGlobally(data:PlanModel[]){
+    localStorage.setItem("PlanList",JSON.stringify(data));
   }
 }

@@ -10,6 +10,10 @@ import { PlanRequestComponent } from './plan-request/plan-request.component';
 import { SettingComponent } from './setting/setting.component';
 import { RouterModule,Routes } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatTabsModule } from '@angular/material/tabs';
+import {MatIconModule} from '@angular/material/icon';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SiteSettingComponent } from './site-setting/site-setting.component';
 const appRoute:Routes = [
 {path:"", component:DashboardComponent},
 {path:"User", component:UserComponent},
@@ -25,14 +29,19 @@ const appRoute:Routes = [
     UserComponent,
     PlanComponent,
     PlanRequestComponent,
-    SettingComponent
+    SettingComponent,
+    SiteSettingComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot(appRoute),
     NgbModule,
-    FormsModule
+    FormsModule,
+    MatTabsModule,
+    BrowserAnimationsModule,
+    MatTabsModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

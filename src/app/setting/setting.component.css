@@ -1,0 +1,29 @@
+.header {
+    color: #13294B;
+    font-weight: bolder;
+    font-size: 25px;
+    padding-top: 10px;
+}
+
+.settingCard {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.example-tab-icon {
+    margin-right: 8px;
+}
+
+.label {
+    font-size: 37px;
+}
+
+ ::ng-deep .mat-tab-list .mat-tab-labels .mat-tab-label-active {
+    color: #13294B;
+    background-color: whitesmoke;
+}
+
+.footer {
+    padding-top: 250px;
+    padding-bottom: 10px;
+}
