@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Chart } from 'chart.js';
-
+import { PlanDurationModel,PlanModel } from '../Models/PlanModel';
+import { UserModel } from '../Models/UserModel';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -12,12 +13,14 @@ paidUsers:number= 5;
 totalOders:number= 10;
 totalOrderAmount:number = 20500.00;
 totalPlans:number = 344440.43;
+
 mostPurchasePlan:String = "Gold";
   canvas: any;
   ctx: any;
   @ViewChild('mychart') mychart:any;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

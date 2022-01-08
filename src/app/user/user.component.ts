@@ -16,9 +16,13 @@ export class UserComponent implements OnInit {
   closeResult2= '';
   closeResult3='';
   fontColor="black";
+  planList:PlanModel[]=[];
+  userList:UserModel[]=[];
   planDurationList:PlanDurationModel[]=[];
   constructor(private modalService: NgbModal, private modalService1: NgbModal, private modalService2: NgbModal, private modalService3:NgbModal) {
-    this.planDurationList = <PlanDurationModel[]>(localStorage.getItem("planDurationList")==null?[]:JSON.parse(<string>localStorage.getItem("planDurationList")));
+    this.planDurationList = <PlanDurationModel[]>(sessionStorage.getItem("planDurationList")==null?[]:JSON.parse(<string>sessionStorage.getItem("planDurationList")));
+    this.planList = <PlanModel[]>(JSON.parse(<string>sessionStorage.getItem("PlanList")));
+    this.userList = <UserModel[]>(JSON.parse(<string>sessionStorage.getItem("userList")));
   }
   open(content:any) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title',size:'lg'}).result.then((result) => {
@@ -64,13 +68,6 @@ export class UserComponent implements OnInit {
   ngOnInit(): void {
 
   }
-  userList:UserModel[]=[
-    new UserModel(1,"ajay","ajay@test.com",12,10,"Gold","12/10/2021","12345678"),
-    new UserModel(2,"vijay","Vijay@test.com",13,18,"Platinum","12/10/2021","erer4344"),
-    new UserModel(3,"Ram","Ram@test.com",14,10,"Silver","12/10/2021","434dsfdff"),
-    new UserModel(4,"Sham","sham@test.com",15,6,"Gold","12/10/2021","dfs34dfs"),
-    new UserModel(5,"Lucky","Lucky@test.com",16,3,"Silver","12/10/2021","fdsfdf34"),
-  ]
   onAddUser(data:any){
     console.log("form submitted");
     console.log(data);
@@ -81,8 +78,10 @@ export class UserComponent implements OnInit {
           maxId=user.userId;
         }
     });
-    this.userList.push(new UserModel(maxId+1,data.Name,data.Email,0,0,"free",new DateTimeModel().getTodayDate(),data.Password));
+    this.userList.push(new UserModel(maxId+1,data.Name,data.Email,0,0,1,new DateTimeModel().getTodayDate(),data.Password,true));
     console.log(this.userList);
+
+    this.updateUserListSession(this.userList);
   }
   onUpdateUser(userData:any,id:number){
     console.log(userData);
@@ -92,7 +91,9 @@ export class UserComponent implements OnInit {
         user.name=userData.Name;
         user.email=userData.Email;
       }
-    })
+    });
+
+    this.updateUserListSession(this.userList);
 
   }
   onDeleteUser(id:number){
@@ -100,11 +101,13 @@ export class UserComponent implements OnInit {
     console.log(i);
     this.userList.splice(i,1);
     console.log(this.userList);
+
+    this.updateUserListSession(this.userList);
   }
 
   getPlanList(){
-    console.log(<PlanModel[]>JSON.parse(<string>localStorage.getItem("PlanList")));
-    return <PlanModel[]>JSON.parse(<string>localStorage.getItem("PlanList"));
+    console.log(<PlanModel[]>JSON.parse(<string>sessionStorage.getItem("PlanList")));
+    return <PlanModel[]>JSON.parse(<string>sessionStorage.getItem("PlanList"));
   }
 
   getPlanDurationDescriptionById(id:number):string{
@@ -115,5 +118,37 @@ export class UserComponent implements OnInit {
       }
     });
     return desc;
+  }
+
+  getPlanNameById(planId:number):string{
+    return (<PlanModel>this.planList.find(x=>x.planId==planId)).planName;
+  }
+  PlanSelected(planId:number,userId:number){
+    this.userList.forEach(user=>{
+      if(user.userId == userId){
+        user.planId = planId;
+      }
+    });
+    this.updateUserListSession(this.userList);
+  }
+
+  updateUserListSession(userList:UserModel[]){
+    sessionStorage.setItem("userList",JSON.stringify(userList));
+  }
+
+  getClassByUserStatus(status:boolean){
+    return status?"":"disabled";
+  }
+
+  getUserStatus(status:boolean){
+    return status?"Active":"Suspended";
+  }
+  SuspendResumeUser(userId:number,status:boolean){
+    this.userList.forEach(x=>{
+      if(x.userId==userId){
+        x.status=status;
+      }
+    });
+    this.updateUserListSession(this.userList);
   }
 }

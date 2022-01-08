@@ -9,12 +9,12 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 })
 export class PlanRequestComponent implements OnInit {
 
-  planRequestIdList:PlanModel[]=[];
+  planRequestIdList:number[]=[];
+  PlanRequestList:PlanModel[]=[];
   planDurationList:PlanDurationModel[]=[];
   closeResult = '';
-
+  planList:PlanModel[]=[];
   constructor(private modalService: NgbModal, private modalService1: NgbModal) {
-
   }
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
@@ -51,12 +51,36 @@ export class PlanRequestComponent implements OnInit {
     });
   }
   ngOnInit(): void {
-    this.planDurationList = <PlanDurationModel[]>(localStorage.getItem("planDurationList")==null?[]:JSON.parse(<string>localStorage.getItem("planDurationList")));
-    this.planRequestIdList = <PlanModel[]>(localStorage.getItem("PlanRequestList")==null?[]:JSON.parse(<string>localStorage.getItem("PlanRequestList")));
+    this.planDurationList = <PlanDurationModel[]>(sessionStorage.getItem("planDurationList")==null?[]:JSON.parse(<string>sessionStorage.getItem("planDurationList")));
+    this.planRequestIdList = <number[]>(sessionStorage.getItem("PlanRequestIdList")==null?[]:JSON.parse(<string>sessionStorage.getItem("PlanRequestIdList"))).filter(this.onlyUnique);
+    this.planList = <PlanModel[]>(sessionStorage.getItem("PlanList")==null?[]:JSON.parse(<string>sessionStorage.getItem("PlanList")));
     console.log("HIII",this.planRequestIdList);
   }
-  removePlanRequestById(id:any){
-    this.planRequestIdList.splice(this.planRequestIdList.findIndex(x=>x.planId==id),1);
-    localStorage.setItem("PlanRequestList",JSON.stringify(this.planRequestIdList));
+  removePlanRequestById(id:number){
+    this.planRequestIdList.splice(this.planRequestIdList.findIndex(id=>id),1);
+    // console.log(this.planRequestIdList.findIndex(id));
+    sessionStorage.setItem("PlanRequestIdList",JSON.stringify(this.planRequestIdList));
+  }
+
+  getPlanRequestList():PlanModel[]{
+    this.PlanRequestList = <PlanModel[]>[];
+    this.planRequestIdList.forEach(id => {
+      this.planList.forEach(plan => {
+        if(plan.planId==id){
+          this.PlanRequestList.push(plan);
+        }
+      });
+    });
+    return this.PlanRequestList;
+  }
+
+  onlyUnique(value:number, index:number, self:number[]) {
+    return self.indexOf(value) === index;
+  }
+
+  checkPlanRequestAvailable():boolean{
+    this.getPlanRequestList();
+    console.log("plan request list",this.PlanRequestList.length);
+    return this.PlanRequestList.length==0?true:false;
   }
 }

@@ -114,3 +114,11 @@
 input.ng-invalid.ng-touched {
     border: 1px solid red;
 }
+
+.activePlan{
+  background-color: rgb(20, 223, 108);
+}
+
+.clsModal:hover{
+  background-color: red;
+}

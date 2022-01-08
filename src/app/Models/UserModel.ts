@@ -9,11 +9,13 @@ export class UserModel {
 
   public clientCount:number;
 
-  public plan:string;
+  public planId:number;
 
   public planExpired:string;
 
   public password:string;
+
+  public status:boolean;
 
   constructor(
   userId:number,
@@ -21,9 +23,10 @@ export class UserModel {
   email:string,
   employeeCount:number,
   clientCount:number,
-  plan:string,
+  planId:number,
   planexpired:string,
   password:string,
+  status:boolean
   )
   {
     this.userId=userId;
@@ -31,8 +34,9 @@ export class UserModel {
     this.email=email;
     this.employeeCount=employeeCount;
     this.clientCount=clientCount;
-    this.plan=plan;
+    this.planId=planId;
     this.planExpired=planexpired;
     this.password=password;
+    this.status=status;
   }
 }

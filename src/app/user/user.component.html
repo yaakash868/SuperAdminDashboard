@@ -40,8 +40,8 @@
         <div *ngFor="let user of userList" class="col-lg-3 col-xl-3 col-md-6 col-sm-12 col-12 userDetails">
             <div class="card text-center">
                 <div class="card-header">
-                    <div>{{user.name}}</div>
-                    <div>{{user.email}}</div>
+                    <div class="p-1">{{user.name}}</div>
+                    <div class="p-1">{{user.email}}</div>
                 </div>
                 <div class="card-body">
                     <div class="card-title">
@@ -76,27 +76,31 @@
                               <ng-template #content3 let-modal>
                                 <div class="modal-header">
                                   <h4 class="modal-title">Upgrade Plans</h4>
-                                  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                                  <button type="button" class="close clsModal" aria-label="Close" (click)="modal.dismiss('Cross click')">
                                     <span aria-hidden="true">&times;</span>
                                   </button>
                                 </div>
                                 <div class="modal-body">
-                                  <div class="card bm-5" *ngFor="let plan of getPlanList()">
+                                  <div class="card mb-1" *ngFor="let plan of getPlanList()">
                                     <div class="card-body">
                                       <div class="row">
                                       <div class="col">{{plan.planName}}</div>
                                       <div class="col">{{plan.employeeCount}} Employees</div>
                                       <div class="col">{{plan.clientCount}} Clients</div>
                                       <div class="col">{{plan.price | currency:"USD"}} / {{getPlanDurationDescriptionById(plan.duration)}}</div>
-                                      <div class="col"><i class="fa fa-shopping-cart btn" aria-hidden="true"></i></div>
+                                      <div class="col"><i *ngIf="plan.planId != user.planId; else ActiveContent" (click)="PlanSelected(plan.planId,user.userId)" class="fa fa-shopping-cart btn" aria-hidden="true"></i>
+                                      <ng-template #ActiveContent>
+                                        <span class="btn activePlan">Active</span>
+                                      </ng-template>
+                                      </div>
                                     </div>
                                     </div>
                                   </div>
                                 </div>
                               </ng-template>
                             </div>
-                            <div class="col"><i class="fa fa-stop-circle-o btn" placement="top" ngbTooltip="Suspend" aria-hidden="true"></i></div>
-                            <div class="col"><i class="fa fa-play-circle btn" placement="top" ngbTooltip="Resume" aria-hidden="true"></i></div>
+                            <div class="col"><i (click)="SuspendResumeUser(user.userId,false)" class="fa fa-stop-circle-o btn" placement="top" ngbTooltip="Suspend" aria-hidden="true"></i></div>
+                            <div class="col"><i (click)="SuspendResumeUser(user.userId,true)" class="fa fa-play-circle btn" placement="top" ngbTooltip="Resume" aria-hidden="true"></i></div>
                             <div class="col">
                                 <ng-template #content2 let-modal>
                                     <div class="modal-header">
@@ -134,8 +138,9 @@
                     </div>
                 </div>
                 <div class="card-footer text-muted text-left">
-                    <p>Plan:{{user.plan}}</p>
+                    <p>Plan:{{getPlanNameById(user.planId)}}</p>
                     <p>Plan Expired : {{user.planExpired}}</p>
+                    <p>User Status : {{getUserStatus(user.status)}}</p>
                 </div>
             </div>
         </div>

@@ -10,14 +10,11 @@ export class PlanComponent implements OnInit {
   closeResult = '';
   closeResult1 = '';
 
-  planDurationList=[
-    new PlanDurationModel(1,"Unlimited"),
-    new PlanDurationModel(2,"Year"),
-    new PlanDurationModel(3,"Month")
-  ];
+  PlanList:PlanModel[]=[];
+  planDurationList:PlanDurationModel[]=[];
   constructor(private modalService: NgbModal, private modalService1: NgbModal) {
-    localStorage.setItem("PlanList",JSON.stringify(<PlanModel[]>this.PlanList));
-    localStorage.setItem("planDurationList",JSON.stringify(<PlanDurationModel[]>this.planDurationList));
+    this.PlanList = <PlanModel[]>JSON.parse(<string>sessionStorage.getItem("PlanList"));
+    this.planDurationList = <PlanDurationModel[]>(JSON.parse(<string>sessionStorage.getItem("planDurationList")));
    }
   ngOnInit(): void {
   }
@@ -47,12 +44,6 @@ export class PlanComponent implements OnInit {
       return `with: ${reason}`;
     }
   }
-  PlanList:PlanModel[]=[
-    new PlanModel(1,"Free Plan",0,1,12,10,"assets/Images/Free.jpg","",false),
-    new PlanModel(2,"Platinum",5000,2,500,150,"assets/Images/Platinum.jpg","Platinum Test Plan",true),
-    new PlanModel(3,"Gold",4000,2,400,50,"assets/Images/Gold.png","Gold Test Plan",true),
-    new PlanModel(4,"Silver",100,3,25,25,"assets/Images/Silver.png","Silver Test Plan",true),
-  ]
 
   //while adding plan
   onAddPlan(data:any){
@@ -102,17 +93,16 @@ export class PlanComponent implements OnInit {
     this.UpdatePlanListGlobally(this.PlanList);
   }
 
-  PlanRequestIdList:PlanModel[]=<PlanModel[]>(localStorage.getItem("PlanRequestList")==null?[]:JSON.parse(<string>localStorage.getItem("PlanRequestList")));
+  PlanRequestIdList:number[]=<number[]>(sessionStorage.getItem("PlanRequestIdList")==null?[]:JSON.parse(<string>sessionStorage.getItem("PlanRequestIdList")));
 
 
   //on clicking send plan request
   onSendPlanRequest(id:number){
-
-    this.PlanRequestIdList.push(<PlanModel>this.PlanList.find(x=>x.planId == id));
-    localStorage.setItem("PlanRequestList",JSON.stringify(this.PlanRequestIdList));
+    this.PlanRequestIdList.push(id);
+    sessionStorage.setItem("PlanRequestIdList",JSON.stringify(this.PlanRequestIdList));
   }
 
   UpdatePlanListGlobally(data:PlanModel[]){
-    localStorage.setItem("PlanList",JSON.stringify(data));
+    sessionStorage.setItem("PlanList",JSON.stringify(data));
   }
 }

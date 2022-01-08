@@ -13,27 +13,27 @@ export class SiteSettingComponent implements OnInit {
   }
   onSubmit(data:any){
     console.log(data);
-    localStorage.setItem("SiteInfo",JSON.stringify(data));
+    sessionStorage.setItem("SiteInfo",JSON.stringify(data));
   }
   getSiteTitleText():string{
-    return <string>JSON.parse(<string>localStorage.getItem("SiteInfo")).SiteTitle;
+    return <string>JSON.parse(<string>sessionStorage.getItem("SiteInfo")).SiteTitle;
   }
   getSiteFooterTitle1():string{
-    return <string>JSON.parse(<string>localStorage.getItem("SiteInfo")).SiteFooterTitle1;
+    return <string>JSON.parse(<string>sessionStorage.getItem("SiteInfo")).SiteFooterTitle1;
   }
   getSiteFooterLink1():string{
-    return <string>JSON.parse(<string>localStorage.getItem("SiteInfo")).SiteFooterLink1;
+    return <string>JSON.parse(<string>sessionStorage.getItem("SiteInfo")).SiteFooterLink1;
   }
   getSiteFooterTitle2():string{
-    return <string>JSON.parse(<string>localStorage.getItem("SiteInfo")).SiteFooterTitle2;
+    return <string>JSON.parse(<string>sessionStorage.getItem("SiteInfo")).SiteFooterTitle2;
   }
   getSiteFooterLink2():string{
-    return <string>JSON.parse(<string>localStorage.getItem("SiteInfo")).SiteFooterLink2;
+    return <string>JSON.parse(<string>sessionStorage.getItem("SiteInfo")).SiteFooterLink2;
   }
   getSiteFooterText():string{
-    return <string>JSON.parse(<string>localStorage.getItem("SiteInfo")).SiteFooterText;
+    return <string>JSON.parse(<string>sessionStorage.getItem("SiteInfo")).SiteFooterText;
   }
   getSiteLanguage():string{
-    return <string>JSON.parse(<string>localStorage.getItem("SiteInfo")).SiteLanguage;
+    return <string>JSON.parse(<string>sessionStorage.getItem("SiteInfo")).SiteLanguage;
   }
 }
