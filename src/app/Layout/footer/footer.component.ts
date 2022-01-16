@@ -27,6 +27,7 @@ export class FooterComponent implements OnInit {
   getSiteLanguage():string{
     return <string>JSON.parse(<string>sessionStorage.getItem("SiteInfo")).SiteLanguage;
   }
+
   constructor() { }
 
   ngOnInit(): void {

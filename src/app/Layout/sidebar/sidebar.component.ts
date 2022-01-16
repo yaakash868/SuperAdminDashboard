@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
   img:string ="assets/Images/midanlogo.png";
+
   constructor() { }
 
   ngOnInit(): void {

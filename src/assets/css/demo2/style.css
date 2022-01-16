@@ -21107,6 +21107,7 @@ div.tox .buy-now-wrapper .tox-button svg,
 
 
 /* .sidebar .sidebar-body .nav .nav-item.active .nav-link::before {
+
     content: "";
     width: 3px;
     height: 26px;
@@ -21123,6 +21124,7 @@ div.tox .buy-now-wrapper .tox-button svg,
 } */
 
 */ .sidebar .sidebar-body .nav.sub-menu {
+
     padding: 0 0 15px 33px;
 }
 
@@ -24432,7 +24434,6 @@ div.tox .tox-dialog__body {
         right: 0;
         display: none;
     }
-
     .chat-wrapper .chat-content.show {
         display: block;
     }
@@ -25036,7 +25037,6 @@ div.table-responsive>div.dataTables_wrapper>div.row>div[class^=col-]:last-child 
         height: 200px;
         min-height: 200px;
     }
-
     .flot-chart-wrapper .flot-chart {
         height: 100%;
     }

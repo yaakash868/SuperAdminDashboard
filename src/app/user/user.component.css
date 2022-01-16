@@ -34,6 +34,7 @@ select {
 }
 
 
+
 /* .addUserBtn {
     margin-top: 5px;
     margin-bottom: 5px;
@@ -80,4 +81,14 @@ i:hover {
 .card-title {
     color: #808080;
     font-size: 15px;
+}
+i{
+  color:#7987A1;
+}
+i:hover{
+  color:#6571FF;
+}
+.card-title{
+  color: #808080;
+  font-size: 15px;
 }
