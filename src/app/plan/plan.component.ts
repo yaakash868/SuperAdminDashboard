@@ -9,10 +9,10 @@ import { PlanModel,PlanDurationModel } from '../Models/PlanModel';
 export class PlanComponent implements OnInit {
   closeResult = '';
   closeResult1 = '';
-
+  closeResult2 = '';
   PlanList:PlanModel[]=[];
   planDurationList:PlanDurationModel[]=[];
-  constructor(private modalService: NgbModal, private modalService1: NgbModal) {
+  constructor(private modalService: NgbModal, private modalService1: NgbModal, private modalService2: NgbModal) {
     this.PlanList = <PlanModel[]>JSON.parse(<string>sessionStorage.getItem("PlanList"));
     this.planDurationList = <PlanDurationModel[]>(JSON.parse(<string>sessionStorage.getItem("planDurationList")));
    }
@@ -30,6 +30,14 @@ export class PlanComponent implements OnInit {
   open1(content1:any) {
     this.modalService1.open(content1, {ariaLabelledBy: 'modal-basic-title',size:'lg', centered: true }).result.then((result) => {
       this.closeResult1 = `Closed with: ${result}`;
+      console.log("first clicked");
+    }, (reason) => {
+      this.closeResult1 = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+  open2(content2:any) {
+    this.modalService2.open(content2, {ariaLabelledBy: 'modal-basic-title', centered: true }).result.then((result) => {
+      this.closeResult2 = `Closed with: ${result}`;
       console.log("first clicked");
     }, (reason) => {
       this.closeResult1 = `Dismissed ${this.getDismissReason(reason)}`;

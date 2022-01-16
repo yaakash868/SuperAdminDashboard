@@ -95,21 +95,3 @@
     color: #13294B;
 }
 
-@media only screen and (min-width:200px) and (max-width:992px) {
-    .footer {
-        padding-top: 10px;
-        padding-bottom: 10px;
-    }
-    .copyright {
-        padding-bottom: 5px;
-    }
-    .language {
-        padding-bottom: 5px;
-    }
-    .terms {
-        padding-bottom: 5px;
-    }
-    .privacy {
-        padding-bottom: 5px;
-    }
-}

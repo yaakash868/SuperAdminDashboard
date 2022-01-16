@@ -1,0 +1,63 @@
+.card {
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #7987a1;
+    font-family: 'Times New Roman', Times, serif;
+    padding-bottom: 5px;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus {
+    color: #6571ff;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"] {
+    border-radius: 10px;
+    color: #6571ff;
+    border: 1px solid #6571ff;
+    margin-bottom: 5px;
+}
+
+form-control::placeholder {
+    color: #6571ff;
+    font-size: 14px;
+    font-weight: bolder;
+}
+
+@keyframes saveChange {
+    0% {
+        box-shadow: 0px 0px 3px 5px #6571ff;
+    }
+    25% {
+        box-shadow: none;
+    }
+    50% {
+        box-shadow: 0px 0px 3px 5px #6571ff;
+    }
+    75% {
+        box-shadow: none;
+    }
+    100% {
+        box-shadow: 0px 0px 3px 5px #6571ff;
+    }
+}
+
+.saveChanges:hover {
+    transform: scale(1.1, 1.1);
+    -webkit-animation-name: saveChange;
+    -webkit-animation-delay: 0ms;
+    -webkit-animation-direction: alternate;
+    -webkit-animation-duration: 5s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+}

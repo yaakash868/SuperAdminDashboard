@@ -1,104 +1,20 @@
-.header {
-    color: #13294B;
-    font-weight: bolder;
-    padding-top: 10px;
-    font-weight: bolder;
-    font-size: 25px;
-}
-
-.addUserBtn {
-    margin-top: 5px;
-    margin-bottom: 5px;
-    border-radius: 30px;
-}
-
-.userDetails {
-    border: 1px solid black;
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-
-.planName {
-    font-size: 17px;
-    color: #13294B;
-    font-weight: bolder;
-}
-
 .free {
     height: 100px;
     width: 100px;
 }
 
-.card-body {
-    text-align: center;
+.card-body .card-title {
+    color: #808080;
+    font-size: 15px;
 }
 
-.discription {
-    font-size: 17px;
-    color: #13294B;
+.card-footer p {
+    color: #dde3ec;
 }
 
-.card-title {
-    font-size: 17px;
-    color: #13294B;
+.card-header {
+    color: #dde3ec;
     font-weight: bolder;
-}
-
-.unlimited {
-    font-size: 17px;
-    color: #13294B;
-    font-weight: bolder;
-}
-
-.footer {
-    padding-top: 250px;
-    padding-bottom: 10px;
-}
-
-.copyright {
-    font-size: 17px;
-    font-weight: bolder;
-    padding-top: 5px;
-    color: #13294B;
-}
-
-.terms {
-    padding-top: 5px;
-}
-
-.terms a {
-    font-size: 17px;
-    color: #13294B;
-    font-weight: bolder;
-}
-
-.privacy {
-    padding-top: 5px;
-}
-
-.privacy a {
-    font-size: 17px;
-    color: #13294B;
-    font-weight: bolder;
-}
-
-@media only screen and (min-width:200px) and (max-width:992px) {
-    .footer {
-        padding-top: 10px;
-        padding-bottom: 10px;
-    }
-    .copyright {
-        padding-bottom: 5px;
-    }
-    .language {
-        padding-bottom: 5px;
-    }
-    .terms {
-        padding-bottom: 5px;
-    }
-    .privacy {
-        padding-bottom: 5px;
-    }
 }
 
 input.ng-invalid.ng-touched,
@@ -108,4 +24,26 @@ select.ng-invalid.ng-touched {
 
 .ErrorSpan {
     color: red;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="file"]:focus,
+select,
+textarea {
+    color: white;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+input[type="file"],
+select,
+textarea {
+    border-radius: 10px;
+    border: 1px solid #6571ff;
+    margin-bottom: 5px;
 }

@@ -1,4 +1,182 @@
-<div class="container-fluid">
+<div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
+    <div>
+        <h4 class="mb-3 mb-md-0">Plan</h4>
+    </div>
+    <div class="d-flex align-items-center flex-wrap text-nowrap">
+        <ng-template #content let-modal>
+            <form (ngSubmit)="onAddPlan(AddPlanData.value)" #AddPlanData="ngForm">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="modal-basic-title">Create New Plan</h4>
+                    <button type="button" class="close btn btn-transparent border-primary" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+            </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="planName">Name</label>
+                            <input type="text" id="planName" class="form-control" placeholder="Enter Plan Name." ngModel name="PlanName" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="planPrice">Price</label>
+                            <input type="number" class="form-control" id="planPrice" placeholder="Enter Plan Price." ngModel name="Price" required min="0" #price="ngModel">
+                            <span *ngIf="price.invalid && price.touched" class="ErrorSpan">Minimum price should not be negative</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="maximumEmployee">Maximum Employee</label>
+                            <input type="number" class="form-control" id="maximumEmployee" min="1" max="500" ngModel name="EmployeeCount" required #empcnt="ngModel">
+                            <span *ngIf="empcnt.invalid && empcnt.touched" class="ErrorSpan">range should be between 1 to 500</span>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="maximumClient">Maximum Client</label>
+                            <input type="number" class="form-control" id="maximumClient" min="1" max="500" ngModel name="ClientCount" required #cltcnt="ngModel">
+                            <span *ngIf="cltcnt.invalid && cltcnt.touched" class="ErrorSpan">range should be between 1 to 500</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="Duration">Duration</label>
+                            <select class="form-select" id="Duration" ngModel name="Duration" required>
+                          <option value="0" selected disabled>Select..</option>
+                              <option *ngFor="let planDuration of planDurationList" [value]="planDuration.planDurationId">{{getPlanDurationDescriptionById(planDuration.planDurationId)}}</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="Image">Image</label>
+                            <input type="file" class="form-control" id="Image" ngModel name="ImageUrl" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <label for="Description">Description</label>
+                            <textarea class="form-control" id="Description" rows="3" ngModel name="Description"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button [disabled]="AddPlanData.invalid" type="submit" (click)="modal.close('Save click')" class="btn btn-transparent border-primary">Save</button>
+                </div>
+            </form>
+        </ng-template>
+        <button type="button" class="btn bg-transparent border-primary btn-lg rounded-3" placement="top-right" ngbTooltip="Create New Plans" (click)="open(content)"><i class="fa fa-plus" aria-hidden="true"></i></button>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-12 col-xl-12 stretch-card">
+        <div class="row flex-grow-1">
+            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12 grid-margin stretch-card" *ngFor="let plan of PlanList">
+                <div class="card">
+                    <div class="card-header d-flex">
+                        <div class="flex-fill text-capitalize">{{plan.planName}}</div>
+                        <ng-template #content1 let-modal>
+                            <form (ngSubmit)="onUpdatePlan(UpdateUserDate.value,plan.planId)" #UpdateUserDate="ngForm">
+                                <div class="modal-header">
+                                    <h4 class="modal-title" id="modal-basic-title">Edit Plan</h4>
+                                    <button type="button" class="close btn btn-transparent border-primary" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="planName1">Name</label>
+                                            <input type="text" class="form-control" id="planName" placeholder="Change Plan Name." [ngModel]="plan.planName" name="PlanName" required>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label for="planPrice">Price</label>
+                                            <input type="number" class="form-control" id="planPrice" placeholder="Enter Plan Price." [ngModel]="plan.price" name="Price" required min="0" #price="ngModel">
+                                            <span *ngIf="price.invalid && price.touched" class="ErrorSpan">Minimum price should not be negative</span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="maximumEmployee1">Maximum Employee</label>
+                                            <input type="number" class="form-control" id="maximumEmployee1" min="1" max="500" [ngModel]="plan.employeeCount" name="EmployeeCount" required #empcnt="ngModel">
+                                            <span *ngIf="empcnt.invalid && empcnt.touched" class="ErrorSpan">range should between 1 to 500</span>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="maximumClient1">Maximum Client</label>
+                                            <input type="number" class="form-control" id="maximumClient1" min="1" max="500" [ngModel]="plan.clientCount" name="ClientCount" required #cltcnt="ngModel">
+                                            <span *ngIf="cltcnt.invalid && cltcnt.touched" class="ErrorSpan">range should between 1 to 500</span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="Duration1">Duration</label>
+                                            <select class="form-select" id="Duration1" [ngModel]="plan.duration" name="Duration" required>
+                                      <option value="" selected disabled>Select..</option>
+                                      <option *ngFor="let planDuration of planDurationList" [value]="planDuration.planDurationId">{{getPlanDurationDescriptionById(planDuration.planDurationId)}}</option>
+                                        </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="Image1">Image</label>
+                                            <input type="file" class="form-control" id="Image1" [ngModel]="plan.imageUrl" name="ImageUrl" [value]="plan.imageUrl" required>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <label for="Description1">Description</label>
+                                            <textarea class="form-control" id="Description1" rows="3" [ngModel]="plan.description" name="Description"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" [disabled]="UpdateUserDate.invalid" (click)="modal.close('Save click')" class="btn btn-transparent border-primary">Save</button>
+                                </div>
+                            </form>
+                        </ng-template>
+                        <div class="flex-fill text-end"><i class="fa fa-pencil-square-o btn bg-transparent border-primary btn-sm" (click)="open1(content1)" aria-hidden="true" placement="top-right" ngbTooltip="Edit Plan"></i></div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="card-body text-center">
+                        <img src="{{plan.imageUrl}}" alt="" class="img-fluid rounded-circle free">
+                        <p class="card-title pt-2">{{plan.price | currency:"USD"}} / {{getPlanDurationDescriptionById(plan.duration)}}</p>
+                        <p class="card-title pt-0">{{plan.description}}</p>
+
+                        <ng-template #content2 let-modal>
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="modal-basic-title">Plan Request</h4>
+                                <button type="button" class="close btn btn-transparent border-primary" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                            </div>
+                            <div class="modal-body">
+                                Your request has successfully sent.
+                            </div>
+                        </ng-template>
+                        <div *ngIf="plan.visibleDescription" (click)="onSendPlanRequest(plan.planId)"><i class="fa fa-share btn bg-transparent border-primary btn-sm" aria-hidden="true" placement="top-right" ngbTooltip="Send Plan Request" (click)="open2(content2)"></i></div>
+                    </div>
+                    <div class="card-footer text-center">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-6">
+                                <div>
+                                    <p class="card-text fw-bold">Employee</p>
+                                    <p class="card-text fs-3">{{plan.employeeCount}}</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-6 px-0">
+                                <div>
+                                    <p class="card-text fw-bold">Client</p>
+                                    <p class="card-text fs-3">{{plan.clientCount}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- <div class="container-fluid">
     <div class="row border border-primary">
         <div class="col-lg-6 col-xl-6 col-md-6 col-sm-6 col-6">
             <h3 class="header">Plan</h3>
@@ -162,4 +340,4 @@
         </div>
     </div>
 
-</div>
+</div>  -->

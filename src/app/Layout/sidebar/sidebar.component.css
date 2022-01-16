@@ -1,0 +1,99 @@
+.active {
+    color: #6571ff !important;
+}
+
+.sidebar .sidebar-body {
+    max-height: calc(100% - 60px);
+    position: relative;
+    border-right: 1px solid #172340;
+    height: 100%;
+    -webkit-box-shadow: 0 8px 10px 0 #03060b;
+    box-shadow: 0 8px 10px 0 #03060b;
+    background: #0c1427;
+}
+
+.sidebar .sidebar-body .nav {
+    display: flex;
+    flex-direction: column;
+    padding: 25px 25px 50px 25px;
+}
+
+.sidebar .sidebar-body .nav .nav-item {
+    position: relative;
+}
+
+.sidebar .sidebar-body .nav .nav-item .nav-link {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    height: 32px;
+    white-space: nowrap;
+    color: #7987a1;
+}
+
+.sidebar .sidebar-body .nav .nav-item .nav-link .link-icon {
+    width: 16px;
+    height: 16px;
+    fill: none;
+    position: absolute;
+    color: inherit;
+}
+
+.sidebar .sidebar-body .nav .nav-item .nav-link .link-title {
+    margin-left: 30px;
+    font-size: 18px;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+.sidebar .sidebar-body .nav .nav-item .nav-link .link-icon,
+.sidebar .sidebar-body .nav .nav-item .nav-link .link-title {
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+
+/* .sidebar .sidebar-body .nav .nav-item .nav-link[aria-expanded=true] {
+    color: #6571ff!important;
+} */
+
+.sidebar .sidebar-body .nav .nav-item.nav-category {
+    color: #d0d6e1;
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    margin-bottom: 5px;
+    height: 15px;
+}
+
+.sidebar .sidebar-body .nav .nav-item.nav-category:not(:first-child) {
+    margin-top: 20px;
+}
+
+.sidebar .sidebar-body .nav .nav-item:hover .nav-link {
+    color: #6571ff !important;
+}
+
+.sidebar .sidebar-body .nav .nav-item:hover .nav-link .link-title {
+    margin-left: 31px;
+}
+
+.sidebar .sidebar-body .nav .nav-item:hover .nav-link .link-icon {
+    color: #6571ff !important;
+    fill: rgba(101, 113, 255, 0.2);
+}
+
+
+/* .sidebar .sidebar-body .nav .nav-item.active .nav-link {
+    color: #6571ff!important;
+} */
+
+.sidebar .sidebar-body .nav .nav-item .active::before {
+    content: "";
+    width: 3px;
+    height: 26px;
+    background: #6571ff !important;
+    position: absolute;
+    left: -25px;
+}

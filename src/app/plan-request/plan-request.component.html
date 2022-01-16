@@ -1,59 +1,69 @@
-<div class="container-fluid">
-    <div class="row border border-danger">
-        <div class="col-12 text-xl-left text-lg-left text-md-left text-sm-center text-center">
-            <h3 class="header">Plan Request</h3>
-        </div>
+<div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
+    <div>
+        <h4 class="mb-3 mb-md-0">Plan Request</h4>
     </div>
-    <div class="row border border-primary">
+</div>
+<div class="container-fluid">
+    <div class="row">
         <div class="col-12 my-3">
-          <div *ngIf="checkPlanRequestAvailable();else planRequestList">
-            <div class="card">
-              <div class="card-body">
-                <h1>Currently no plan request is there</h1>
-              </div>
-            </div>
-          </div>
-          <ng-template #planRequestList>
-            <div class="card mb-1" *ngFor="let t of getPlanRequestList()">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col">Super Admin</div>
-                        <div class="col">{{t.planName}}</div>
-                        <div class="col">{{t.clientCount}} Client</div>
-                        <div class="col">{{t.employeeCount}} Employee</div>
-                        <div class="col">{{t.price | currency:"USD"}} / {{getPlanDurationDescriptionById(t.duration)}}</div>
-                        <div class="col">{{t.description}}</div>
-                        <div class="col"><button (click)="open(content,t.planId)"><i class="fa fa-check-square" aria-hidden="true"></i></button><button (click)="open1(content1,t.planId)"><i class="fa fa-window-close" aria-hidden="true"></i></button></div>
+            <div *ngIf="checkPlanRequestAvailable();else planRequestList">
+                <div class="card rounded">
+                    <div class="card-body text-center">
+                        <h4>Currently no plan request is there</h4>
                     </div>
                 </div>
             </div>
-          </ng-template>
+
+
+            <ng-template #planRequestList>
+                <div class="card mb-2 rounded" *ngFor="let t of getPlanRequestList()">
+                    <div class="card-body">
+                        <div class="row d-flex flex-md-row flex-column">
+                            <div class="col card-title text-md-start text-center">Super Admin</div>
+                            <div class="col card-title text-md-start text-center">{{t.planName}}</div>
+                            <div class="col card-title text-md-start text-center">{{t.clientCount}} Client</div>
+                            <div class="col card-title text-md-start text-center">{{t.employeeCount}} Employee</div>
+                            <div class="col card-title text-md-start text-center">{{t.price | currency:"USD"}} / {{getPlanDurationDescriptionById(t.duration)}}</div>
+                            <div class="col card-title text-md-start text-center">{{t.description}}</div>
+                            <div class="col d-flex flex-md-row flex-column text-md-start text-center">
+                                <div class="mb-md-0 mb-1 text-md-start text-center">
+                                    <button (click)="open(content,t.planId)" class="btn bg-transparent border-primary btn-sm me-md-2 me-0" placement="top-right" ngbTooltip="Approve Request"><i class="fa fa-check-square" aria-hidden="true"></i></button></div>
+                                <div class="text-md-start text-center">
+                                    <button (click)="open1(content1,t.planId)" class="btn bg-transparent border-primary btn-sm" placement="top-left" ngbTooltip="Cancel Request"><i class="fa fa-window-close" aria-hidden="true"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
         </div>
     </div>
-    <!-- modal code -->
+
+
+
     <ng-template #content let-modal>
-      <div class="modal-body">
-        <form>
-          <div class="form-group">
-            <h1>Your request has been submitted successfully</h1>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Ok</button>
-      </div>
+        <div class="modal-body">
+            <form>
+                <div class="form-group">
+                    <h5>Your request has been submitted successfully</h5>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn bg-transparent border-primary" (click)="modal.close('Save click')">Ok</button>
+        </div>
     </ng-template>
     <ng-template #content1 let-modal>
-      <div class="modal-body">
-        <form>
-          <div class="form-group">
-            <h1>Your request has been cancelled successfully</h1>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Ok</button>
-      </div>
+        <div class="modal-body">
+            <form>
+                <div class="form-group">
+                    <h5>Your request has been cancelled successfully</h5>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn bg-transparent border-primary" (click)="modal.close('Save click')">Ok</button>
+        </div>
     </ng-template>
-    <!-- modal code end -->
+
 </div>

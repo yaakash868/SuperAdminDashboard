@@ -175,3 +175,10 @@ i {
   }
 }
 
+.txt-dir-default {
+  direction: ltr;
+}
+
+.txt-dir-change {
+  direction: rtl;
+}

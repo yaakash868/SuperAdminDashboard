@@ -3,13 +3,17 @@ import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
 import { PlanDurationModel, PlanModel } from './Models/PlanModel';
 import { UserModel } from './Models/UserModel';
+let cssFile='';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  txtDirection='txt-dir-default';
   title = 'SuperAdmin';
+  selectedLanguageId = 0;
+  LanguageList:string[]=["English","Arabic"];
   planDurationList=[
     new PlanDurationModel(1,"Unlimited"),
     new PlanDurationModel(2,"Year"),
@@ -33,7 +37,7 @@ export class AppComponent implements OnInit {
                     ,"SiteFooterLink1":""
                     ,"SiteFooterTitle2":"Services"
                     ,"SiteFooterLink2":""
-                    ,"SiteFooterText":"Copyright Midan.sa 2022"
+                    ,"SiteFooterText":"2021 Copyright © All rights reserved Owned by Midan"
                     ,"SiteLanguage":"English"};
   myimg:string="assets/Images/midanlogo.png";
   constructor() {
@@ -42,6 +46,8 @@ export class AppComponent implements OnInit {
     sessionStorage.setItem("PlanList",JSON.stringify(<PlanModel[]>this.PlanList));
     sessionStorage.setItem("userList",JSON.stringify(this.userList));
     sessionStorage.setItem("SiteInfo",JSON.stringify(this.CurrentSiteInfo));
+    sessionStorage.setItem("LanguageList",JSON.stringify(this.LanguageList));
+    sessionStorage.setItem("SelectedLanguageId",JSON.stringify(this.selectedLanguageId));
   }
   ngOnInit(): void {
       $(function()
@@ -51,25 +57,16 @@ export class AppComponent implements OnInit {
         });
       });
   }
-  getSiteTitleText():string{
-    return <string>JSON.parse(<string>sessionStorage.getItem("SiteInfo")).SiteTitle;
+  setDirection():any{
+    let id = <number>JSON.parse(<string>sessionStorage.getItem("SelectedLanguageId"));
+    console.log("this is app component",id);
+    if(id==0){
+      this.txtDirection = 'txt-dir-default';
+    }
+    else{
+      this.txtDirection = 'txt-dir-change';
+    }
+    return this.txtDirection;
   }
-  getSiteFooterTitle1():string{
-    return <string>JSON.parse(<string>sessionStorage.getItem("SiteInfo")).SiteFooterTitle1;
-  }
-  getSiteFooterLink1():string{
-    return <string>JSON.parse(<string>sessionStorage.getItem("SiteInfo")).SiteFooterLink1;
-  }
-  getSiteFooterTitle2():string{
-    return <string>JSON.parse(<string>sessionStorage.getItem("SiteInfo")).SiteFooterTitle2;
-  }
-  getSiteFooterLink2():string{
-    return <string>JSON.parse(<string>sessionStorage.getItem("SiteInfo")).SiteFooterLink2;
-  }
-  getSiteFooterText():string{
-    return <string>JSON.parse(<string>sessionStorage.getItem("SiteInfo")).SiteFooterText;
-  }
-  getSiteLanguage():string{
-    return <string>JSON.parse(<string>sessionStorage.getItem("SiteInfo")).SiteLanguage;
-  }
+
 }
