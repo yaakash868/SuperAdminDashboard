@@ -1,0 +1,16 @@
+{
+  "dashboard":{
+    "dashboard": "لوحة القيادة",
+    "totalusers": "إجمالي المستخدمين",
+    "paidusers" : "المستخدمون المدفوعون",
+    "totalorders" :"مجموع الطلبات",
+    "totalorderAMOUNT" : "إجمالي مبلغ الطلب",
+    "totalplans" : "إجمالي الخطط",
+    "mostpurchaseplans" : "معظم خطط الشراء",
+    "recentorders" :"الطلبيات الأخيرة",
+    "today" :"اليوم",
+    "week" :"أسبوع",
+    "month" :"شهر",
+    "year" : "عام"
+  }
+}

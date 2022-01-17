@@ -1,0 +1,9 @@
+{
+  "sidebar":{
+    "Dashboard":"Dashboard",
+    "User":"User",
+    "Plan":"Plan",
+    "PlanRequest":"Plan Request",
+    "Settings":"Settings"
+  }
+}

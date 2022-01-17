@@ -1,0 +1,48 @@
+{
+  "user":{
+    "Title":"مستخدم",
+    "AddUserTooltip":"إنشاء مستخدم جديد",
+    "AddUser":{
+      "Title":"إنشاء مستخدم جديد",
+      "Name":"اسم",
+      "NamePlaceholder":"أدخل اسم المستخدم",
+      "Email":"عنوان البريد الالكترونى",
+      "EmailPlaceHolder":"أدخل البريد الإلكتروني",
+      "EmailException":"الرجاء إدخال عنوان بريد إلكتروني صالح",
+      "Password":"كلمة المرور",
+      "PasswordPlaceHolder":"أدخل كلمة المرور",
+      "SaveBtn":"يحفظ"
+    },
+    "EditTooltip":"تعديل",
+    "EditUser":{
+      "Title":"تحرير العضو",
+      "Name":"اسم",
+      "NamePlaceholder":"أدخل اسم المستخدم",
+      "Email":"عنوان البريد الالكترونى",
+      "EmailPlaceHolder":"أدخل البريد الإلكتروني",
+      "EmailException":"الرجاء إدخال عنوان بريد إلكتروني صالح",
+      "UpdateBtn":"تحديث"
+    },
+    "UpgradePlanTooltip":"خطة الترقية",
+    "UpgradePlans":{
+      "Title":"خطة الترقية",
+      "Employees":"الموظفين",
+      "Clients":"العملاء",
+      "Active":"نشيط"
+    },
+    "SuspendTooltip":"تعليق",
+    "ResumeTooltip":"سيرة ذاتية",
+    "DeleteTooltip":"حذف",
+    "DeleteUser":{
+      "Title":"هل أنت متأكد؟",
+      "Message":"لا يمكن التراجع عن هذا الإجراء. هل تريد الاستمرار؟",
+      "YesBtn":"نعم",
+      "NoBtn":"رقم"
+    },
+    "Employee":"موظف",
+    "Client":"عميل",
+    "Plan":"يخطط",
+    "PlanExpired":"انتهت الخطة",
+    "UserStatus":"حالة المستخدم"
+  }
+}

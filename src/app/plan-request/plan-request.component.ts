@@ -1,3 +1,4 @@
+import { TranslateService } from '@ngx-translate/core';
 import { Component, OnInit } from '@angular/core';
 import { PlanModel, PlanDurationModel } from '../Models/PlanModel';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
@@ -14,7 +15,7 @@ export class PlanRequestComponent implements OnInit {
   planDurationList:PlanDurationModel[]=[];
   closeResult = '';
   planList:PlanModel[]=[];
-  constructor(private modalService: NgbModal, private modalService1: NgbModal) {
+  constructor(private modalService: NgbModal, private translate:TranslateService ,private modalService1: NgbModal) {
   }
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {

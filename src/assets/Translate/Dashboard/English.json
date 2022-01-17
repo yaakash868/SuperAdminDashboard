@@ -1,0 +1,16 @@
+{
+  "dashboard":{
+    "dashboard": "Dashboard",
+    "totalusers": "TOTAL USERS",
+    "paidusers" : "PAID USERS",
+    "totalorders" :"TOTAL ORDERS",
+    "totalorderAMOUNT" : "TOTAL ORDER AMOUNT",
+    "totalplans" : "TOTAL PLANS",
+    "mostpurchaseplans" : "MOST PURCHASE PLAN",
+    "recentorders" :"RECENT ORDERS",
+    "today" :"TODAY",
+    "week" :"WEEK",
+    "month" :"MONTH",
+    "year" : "YEAR"
+  }
+}

@@ -1,3 +1,4 @@
+import { TranslateService } from '@ngx-translate/core';
 import { PlanModel,PlanDurationModel } from './../Models/PlanModel';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
@@ -19,7 +20,7 @@ export class UserComponent implements OnInit {
   planList:PlanModel[]=[];
   userList:UserModel[]=[];
   planDurationList:PlanDurationModel[]=[];
-  constructor(private modalService: NgbModal, private modalService1: NgbModal, private modalService2: NgbModal, private modalService3:NgbModal) {
+  constructor(private modalService: NgbModal, private translate:TranslateService ,private modalService1: NgbModal, private modalService2: NgbModal, private modalService3:NgbModal) {
     this.planDurationList = <PlanDurationModel[]>(sessionStorage.getItem("planDurationList")==null?[]:JSON.parse(<string>sessionStorage.getItem("planDurationList")));
     this.planList = <PlanModel[]>(JSON.parse(<string>sessionStorage.getItem("PlanList")));
     this.userList = <UserModel[]>(JSON.parse(<string>sessionStorage.getItem("userList")));

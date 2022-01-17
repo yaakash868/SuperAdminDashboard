@@ -1,0 +1,13 @@
+{
+  "mailSetting":{
+    "MailDriver":"سائق البريد",
+    "MailHost":"مضيف البريد",
+    "MailPort":"منفذ البريد",
+    "MailUsername":"اسم مستخدم البريد",
+    "MailPassword":"كلمة مرور البريد",
+    "MailEncryption":"تشفير البريد",
+    "MailFromAddress":"البريد من العنوان",
+    "MailFromName":"البريد من الاسم",
+    "SendTestMail":"إرسال بريد تجريبي"
+  }
+}

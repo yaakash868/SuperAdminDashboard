@@ -1,0 +1,36 @@
+{
+  "plan":{
+    "Title":"يخطط",
+    "AddPlanTooltip":"إنشاء خطة جديدة",
+    "AddPlan":{
+      "Title":"إنشاء خطة جديدة",
+      "SaveBtn":"يحفظ"
+    },
+    "Common":{
+      "Name":"اسم",
+      "NamePlaceHolder":"أدخل اسم الخطة.",
+      "Price":"السعر",
+      "PricePlaceHolder":"أدخل سعر الخطة.",
+      "PriceException":"يجب ألا يكون الحد الأدنى للسعر سالبًا",
+      "MaximumEmployee":"الحد الأقصى للموظف",
+      "MaximumEmployeeException":"يجب أن يكون النطاق بين 1 إلى 500",
+      "MaximumClient":"الحد الأقصى للعميل",
+      "MaximumClientException":"يجب أن يكون النطاق بين 1 إلى 500",
+      "Duration":"مدة",
+      "Image":"صورة",
+      "Description":"وصف"
+    },
+    "EditPlanTooltip":"تعديل",
+    "EditPlan":{
+      "Title":"تحرير الخطة",
+      "UpdateBtn":"تحديث"
+    },
+    "SendPlanReqestTooltip":"إرسال طلب خطة",
+    "SendPlanRequest":{
+      "Title":"طلب خطة",
+      "Message":"تم إرسال طلبك بنجاح."
+    },
+    "Employee":"موظف",
+    "Client":"عميل"
+  }
+}

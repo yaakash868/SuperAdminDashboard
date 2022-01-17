@@ -1,11 +1,11 @@
 <div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
     <div>
-        <h4 class="mb-3 mb-md-0">User</h4>
+        <h4 class="mb-3 mb-md-0">{{'user.Title' | translate}}</h4>
     </div>
     <div class="d-flex align-items-center flex-wrap text-nowrap">
         <ng-template #content let-modal dir="rtl">
             <div class="modal-header">
-                <h4 class="modal-title" id="modal-basic-title">Create New User</h4>
+                <h4 class="modal-title" id="modal-basic-title">{{'user.AddUser.Title' | translate}}</h4>
                 <button type="button" class="close btn btn-transparent border-primary" (click)="modal.dismiss('Cross click')">
         <i class="fa fa-times"></i>
     </button>
@@ -13,26 +13,26 @@
             <form (ngSubmit)="onAddUser(f.value)" #f="ngForm">
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="exampleInputUsername">Name</label>
-                        <input type="text" class="form-control" id="exampleInputUsername" placeholder="Enter the User Name" ngModel name="Name" required>
+                        <label for="exampleInputUsername">{{'user.AddUser.Name' | translate}}</label>
+                        <input type="text" class="form-control" id="exampleInputUsername" [placeholder]="'user.AddUser.NamePlaceholder' | translate" ngModel name="Name" required>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter the Email" ngModel name="Email" email #email="ngModel" required>
-                        <span style="color:red;" *ngIf="!email.valid && email.touched">Please enter valid email address</span>
+                        <label for="exampleInputEmail1">{{'user.AddUser.Email' | translate}}</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" [placeholder]="'user.AddUser.EmailPlaceHolder' | translate" ngModel name="Email" email #email="ngModel" required>
+                        <span style="color:red;" *ngIf="!email.valid && email.touched">{{'user.AddUser.EmailException' | translate}}</span>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputPassword1">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter the Password" ngModel name="Password" required>
+                        <label for="exampleInputPassword1">{{'user.AddUser.Password' | translate}}</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" [placeholder]="'user.AddUser.PasswordPlaceHolder' | translate" ngModel name="Password" required>
                     </div>
 
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" [disabled]="!f.valid" (click)="modal.close('Save click')" class="btn btn-primary bg-transparent">Save</button>
+                    <button type="submit" [disabled]="!f.valid" (click)="modal.close('Save click')" class="btn btn-primary bg-transparent">{{'user.AddUser.SaveBtn' | translate}}</button>
                 </div>
             </form>
         </ng-template>
-        <button type="button" class="btn bg-transparent border-primary btn-lg rounded-3" placement="top-right" ngbTooltip="Create New User" (click)="open(content)"><i class="fa fa-plus" aria-hidden="true"></i></button>
+        <button type="button" class="btn bg-transparent border-primary btn-lg rounded-3" placement="top-right" [ngbTooltip]="'user.AddUserTooltip' | translate" (click)="open(content)"><i class="fa fa-plus" aria-hidden="true"></i></button>
     </div>
 </div>
 <div class="row">
@@ -51,7 +51,7 @@
                                     <ng-template #content1 let-modal>
                                         <form (ngSubmit)="onUpdateUser(userDataUpdate.value,user.userId)" #userDataUpdate="ngForm" autocomplete="off">
                                             <div class="modal-header">
-                                                <h4 class="modal-title" id="modal-basic-title">Edit Users</h4>
+                                                <h4 class="modal-title" id="modal-basic-title">{{'user.EditUser.Title' | translate}}</h4>
                                                 <button type="button" class="close btn btn-transparent border-primary" aria-label="Close" (click)="modal.dismiss('Cross click')">
                                                  <span aria-hidden="true">&times;</span>
                                                  </button>
@@ -59,26 +59,26 @@
                                             <div class="modal-body">
                                                 <div class="row">
                                                     <div class="col-12">
-                                                        <label for="exampleInputUsername">Name</label>
-                                                        <input type="text" [ngModel]="user.name" class="form-control" id="editName" placeholder="Enter the User Name" name="Name" required>
+                                                        <label for="exampleInputUsername">{{'user.EditUser.Name' | translate}}</label>
+                                                        <input type="text" [ngModel]="user.name" class="form-control" id="editName" [placeholder]="'user.EditUser.NamePlaceholder' | translate" name="Name" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
-                                                    <label for="exampleInputEmail1">Email address</label>
-                                                    <input type="email" [ngModel]="user.email" class="form-control" id="editEmail" placeholder="Enter the Email" required email name="Email" #email="ngModel">
-                                                    <span style="color:red;" *ngIf="!email.valid && email.touched">Please enter valid email address</span>
+                                                    <label for="exampleInputEmail1">{{'user.EditUser.Email' | translate}}</label>
+                                                    <input type="email" [ngModel]="user.email" class="form-control" id="editEmail" [placeholder]="'user.EditUser.EmailPlaceHolder' | translate" required email name="Email" #email="ngModel">
+                                                    <span style="color:red;" *ngIf="!email.valid && email.touched">{{'user.EditUser.EmailException' | translate}}</span>
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="submit" [disabled]="!userDataUpdate.valid" class="btn btn-transparent border-primary" (click)="modal.close('Save click')">Update</button>
+                                                <button type="submit" [disabled]="!userDataUpdate.valid" class="btn btn-transparent border-primary" (click)="modal.close('Save click')">{{'user.EditUser.UpdateBtn' | translate}}</button>
                                             </div>
                                         </form>
                                     </ng-template>
-                                    <i class="fa fa-pencil btn" placement="top" ngbTooltip="Edit" aria-hidden="true" (click)="open1(content1)"></i></div>
-                                <div class="col"><i (click)="open3(content3)" class="fa fa-trophy btn" placement="top" ngbTooltip="Upgrade Plans" aria-hidden="true"></i>
+                                    <i class="fa fa-pencil btn" placement="top" [ngbTooltip]="'user.EditTooltip' | translate" aria-hidden="true" (click)="open1(content1)"></i></div>
+                                <div class="col"><i (click)="open3(content3)" class="fa fa-trophy btn" placement="top" [ngbTooltip]="'user.UpgradePlanTooltip' | translate" aria-hidden="true"></i>
                                     <ng-template #content3 let-modal>
                                         <div class="modal-header">
-                                            <h4 class="modal-title">Upgrade Plans</h4>
+                                            <h4 class="modal-title">{{'user.UpgradePlans.Title' | translate}}</h4>
                                             <button type="button" class="close btn btn-transparent border-primary" aria-label="Close" (click)="modal.dismiss('Cross click')">
                           <span aria-hidden="true">&times;</span>
                         </button>
@@ -88,12 +88,12 @@
                                                 <div class="card-body">
                                                     <div class="row">
                                                         <div class="col">{{plan.planName}}</div>
-                                                        <div class="col">{{plan.employeeCount}} Employees</div>
-                                                        <div class="col">{{plan.clientCount}} Clients</div>
+                                                        <div class="col">{{plan.employeeCount}} {{'user.UpgradePlans.Employees' | translate}}</div>
+                                                        <div class="col">{{plan.clientCount}} {{'user.UpgradePlans.Clients' | translate}}</div>
                                                         <div class="col">{{plan.price | currency:"USD"}} / {{getPlanDurationDescriptionById(plan.duration)}}</div>
                                                         <div class="col"><i *ngIf="plan.planId != user.planId; else ActiveContent" (click)="PlanSelected(plan.planId,user.userId)" class="fa fa-shopping-cart btn" aria-hidden="true"></i>
                                                             <ng-template #ActiveContent>
-                                                                <span class="btn activePlan">Active</span>
+                                                                <span class="btn activePlan">{{'user.UpgradePlans.Active' | translate}}</span>
                                                             </ng-template>
                                                         </div>
                                                     </div>
@@ -102,38 +102,38 @@
                                         </div>
                                     </ng-template>
                                 </div>
-                                <div class="col"><i (click)="SuspendResumeUser(user.userId,false)" class="fa fa-stop-circle-o btn" placement="top" ngbTooltip="Suspend" aria-hidden="true"></i></div>
-                                <div class="col"><i (click)="SuspendResumeUser(user.userId,true)" class="fa fa-play-circle btn" placement="top" ngbTooltip="Resume" aria-hidden="true"></i></div>
+                                <div class="col"><i (click)="SuspendResumeUser(user.userId,false)" class="fa fa-stop-circle-o btn" placement="top" [ngbTooltip]="'user.SuspendTooltip' | translate" aria-hidden="true"></i></div>
+                                <div class="col"><i (click)="SuspendResumeUser(user.userId,true)" class="fa fa-play-circle btn" placement="top" [ngbTooltip]="'user.ResumeTooltip' | translate" aria-hidden="true"></i></div>
                                 <div class="col">
                                     <ng-template #content2 let-modal>
                                         <div class="modal-header">
-                                            <h4 class="modal-title" id="modal-basic-title">Are You Sure?</h4>
+                                            <h4 class="modal-title" id="modal-basic-title">{{'user.DeleteUser.Title' | translate}}</h4>
                                             <button type="button" class="close btn btn-transparent border-primary" aria-label="Close" (click)="modal.dismiss('Cross click')">
                               <span aria-hidden="true">&times;</span>
                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            This action can not be undone. Do you want to continue?
+                                          {{'user.DeleteUser.Message' | translate}}
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-transparent-primary border-primary" (click)="onDeleteUser(user.userId);modal.close('Save click')">Yes</button>
-                                            <button type="button" class="btn btn-transparent border-primary" (click)="modal.close('Cross click')">No</button>
+                                            <button type="button" class="btn btn-transparent-primary border-primary" (click)="onDeleteUser(user.userId);modal.close('Save click')">{{'user.DeleteUser.YesBtn' | translate}}</button>
+                                            <button type="button" class="btn btn-transparent border-primary" (click)="modal.close('Cross click')">{{'user.DeleteUser.NoBtn' | translate}}</button>
                                         </div>
                                     </ng-template>
-                                    <i class="fa fa-trash btn" placement="top" ngbTooltip="Delete" aria-hidden="true" (click)="open2(content2)"></i></div>
+                                    <i class="fa fa-trash btn" placement="top" [ngbTooltip]="'user.DeleteTooltip' | translate" aria-hidden="true" (click)="open2(content2)"></i></div>
                             </div>
                         </div>
                         <div class="card-text pt-2">
                             <div class="row text-center">
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-6">
                                     <div>
-                                        <h5 class="card-title">Employee</h5>
+                                        <h5 class="card-title">{{'user.Employee' | translate}}</h5>
                                         <p class="card-text fs-3">{{user.employeeCount}}</p>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-6 px-0">
                                     <div>
-                                        <h5 class="card-title">Client</h5>
+                                        <h5 class="card-title">{{'user.Client' | translate}}</h5>
                                         <p class="card-text fs-3">{{user.clientCount}}</p>
                                     </div>
                                 </div>
@@ -142,15 +142,15 @@
                     </div>
                     <div class="card-footer text-muted">
                       <div class="row">
-                        <div class="col cftitle">Plan :</div>
+                        <div class="col cftitle">{{'user.Plan' | translate}} :</div>
                         <div class="col"><p>{{getPlanNameById(user.planId)}}</p></div>
                       </div>
                       <div class="row">
-                        <div class="col cftitle">Plan Expired :</div>
+                        <div class="col cftitle">{{'user.PlanExpired' | translate}} :</div>
                         <div class="col"><p>{{user.planExpired}}</p></div>
                       </div>
                       <div class="row">
-                        <div class="col cftitle">User Status :</div>
+                        <div class="col cftitle">{{'user.UserStatus' | translate}} :</div>
                         <div class="col"><p>{{getUserStatus(user.status)}}</p></div>
                       </div>
 

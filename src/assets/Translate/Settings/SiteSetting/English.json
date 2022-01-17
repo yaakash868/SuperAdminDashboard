@@ -1,0 +1,13 @@
+{
+  "siteSetting":{
+    "Logo":"Logo",
+    "TitleText":"Title Text",
+    "FooterTitle1":"Footer Title 1",
+    "FooterLink1":"Footer Link 1",
+    "FooterTitle2":"Footer Title 2",
+    "FooterLink2":"Footer Link 2",
+    "FooterText":"Footer Text",
+    "DefaultLanguage":"Default Language",
+    "SaveChangesBtn":"Save Changes"
+  }
+}

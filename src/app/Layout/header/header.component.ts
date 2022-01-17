@@ -1,5 +1,6 @@
 
 import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -7,15 +8,18 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit, AfterViewInit {
 LanguageList:string[]=[];
+browserLang='';
 selectedLanguageId:number = 0;
-  constructor() {
+  constructor(public translate:TranslateService) {
     this.LanguageList = <string[]>JSON.parse(<string>sessionStorage.getItem("LanguageList"));
-
+    translate.addLangs(this.LanguageList);
+    this.languageChanged();
   }
 
   onSelectLanguage(languageId:number){
     sessionStorage.setItem("SelectedLanguageId",JSON.stringify(languageId));
     this.selectedLanguageId = languageId;
+    this.languageChanged();
     this.changeStyle();
   }
   ngOnInit(): void {
@@ -24,10 +28,10 @@ selectedLanguageId:number = 0;
     return this.LanguageList[<number>JSON.parse(<string>sessionStorage.getItem("SelectedLanguageId"))];
   }
   getFlagByLanguageId(id:number){
-    return id==0?"flag-icon flag-icon-us":"flag-icon flag-icon-ar";
+    return id==0?"flag-icon flag-icon-us":"flag-icon flag-icon-pk";
   }
   getSelectedFlagByLanguageId(id:number){
-    return id==0?"flag-icon flag-icon-us mt-1":"flag-icon flag-icon-ar mt-1"
+    return id==0?"flag-icon flag-icon-us mt-1":"flag-icon flag-icon-pk mt-1"
   }
   ngAfterViewInit(): void {
     this.changeStyle();
@@ -50,5 +54,10 @@ selectedLanguageId:number = 0;
       $("html").attr("dir","rtl");
     }
     document.head.appendChild(l);
+  }
+
+  languageChanged(){
+    this.browserLang=this.getSelectedLanguage();
+    this.translate.use(this.browserLang.match(/English|Arabic/)?this.browserLang:'English');
   }
 }

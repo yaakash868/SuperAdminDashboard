@@ -1,0 +1,48 @@
+{
+  "user":{
+    "Title":"User",
+    "AddUserTooltip":"Create New User",
+    "AddUser":{
+      "Title":"Create New User",
+      "Name":"Name",
+      "NamePlaceholder":"Enter The User Name",
+      "Email":"Email Address",
+      "EmailPlaceHolder":"Enter The Email",
+      "EmailException":"Please enter valid email address",
+      "Password":"Password",
+      "PasswordPlaceHolder":"Enter The Password",
+      "SaveBtn":"Save"
+    },
+    "EditTooltip":"Edit",
+    "EditUser":{
+      "Title":"Edit User",
+      "Name":"Name",
+      "NamePlaceholder":"Enter The User Name",
+      "Email":"Email Address",
+      "EmailPlaceHolder":"Enter The Email",
+      "EmailException":"Please enter valid email address",
+      "UpdateBtn":"Update"
+    },
+    "UpgradePlanTooltip":"Upgrade Plan",
+    "UpgradePlans":{
+      "Title":"Upgrade Plan",
+      "Employees":"Employees",
+      "Clients":"Clients",
+      "Active":"Active"
+    },
+    "SuspendTooltip":"Suspend",
+    "ResumeTooltip":"Resume",
+    "DeleteTooltip":"Delete",
+    "DeleteUser":{
+      "Title":"Are You Sure?",
+      "Message":"This action can not be undone. Do you want to continue?",
+      "YesBtn":"Yes",
+      "NoBtn":"No"
+    },
+    "Employee":"Employee",
+    "Client":"Client",
+    "Plan":"Plan",
+    "PlanExpired":"Plan Expired",
+    "UserStatus":"UserStatus"
+  }
+}

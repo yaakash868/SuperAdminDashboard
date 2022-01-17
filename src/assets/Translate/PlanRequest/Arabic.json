@@ -1,0 +1,19 @@
+{
+  "planRequest":{
+    "Title":"طلب خطة",
+    "EmptyRecordMessage":"حاليا لا يوجد طلب خطة هناك",
+    "SuperAdmin":"مشرف فائق",
+    "Client":"عميل",
+    "Employee":"موظف",
+    "ApproveRequestTooltip":"طلب الموافقة",
+    "CancelRequestTooltip":"إلغاء الطلب",
+    "SuccessFulModal":{
+      "Message":"وفد فدم طلبك بنجاح",
+      "OkBtn":"موافق"
+    },
+    "UnSuccessFulModal":{
+      "Message":"تم إلغاء طلبك بنجاح",
+      "OkBtn":"موافق"
+    }
+  }
+}

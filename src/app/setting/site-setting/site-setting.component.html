@@ -3,42 +3,42 @@
         <form (ngSubmit)="onSubmit(SiteSettingData.value)" #SiteSettingData="ngForm">
             <div class="row">
                 <div class="col-md-6">
-                    <label for="Logo">Logo</label>
+                    <label for="Logo">{{'siteSetting.Logo' | translate}}</label>
                     <input type="file" class="form-control" id="Logo" ngModel name="FileInfo">
                 </div>
                 <div class="col-md-6">
-                    <label for="Titletext">Title Text</label>
+                    <label for="Titletext">{{'siteSetting.TitleText' | translate}}</label>
                     <input type="text" class="form-control" id="Titletext" [ngModel]="getSiteTitleText()" name="SiteTitle">
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-md-6">
-                    <label for="Footertext">Footer Title 1</label>
+                    <label for="Footertext">{{'siteSetting.FooterTitle1' | translate}}</label>
                     <input type="text" class="form-control" id="Footertext" [ngModel]="getSiteFooterTitle1()" name="SiteFooterTitle1" required>
                 </div>
                 <div class="col-md-6">
-                    <label for="FooterLink1">Footer Link 1</label>
+                    <label for="FooterLink1">{{'siteSetting.FooterLink1' | translate}}</label>
                     <input type="text" class="form-control" id="FooterLink1" [ngModel]="getSiteFooterLink1()" name="SiteFooterLink1">
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    <label for="Footertext">Footer Title 2</label>
+                    <label for="Footertext">{{'siteSetting.FooterTitle2' | translate}}</label>
                     <input type="text" class="form-control" id="Footertext" [ngModel]="getSiteFooterTitle2()" name="SiteFooterTitle2" required>
                 </div>
                 <div class="col-md-6">
-                    <label for="FooterLink1">Footer Link 2</label>
+                    <label for="FooterLink1">{{'siteSetting.FooterLink2' | translate}}</label>
                     <input type="text" class="form-control" id="FooterLink1" [ngModel]="getSiteFooterLink2()" name="SiteFooterLink2">
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    <label for="Footertext">Footer Text</label>
+                    <label for="Footertext">{{'siteSetting.FooterText' | translate}}</label>
                     <input type="text" class="form-control" id="Footertext" [ngModel]="getSiteFooterText()" name="SiteFooterText" required>
                 </div>
                 <div class="col-md-6">
-                    <label for="Titletext">Default Language</label>
+                    <label for="Titletext">{{'siteSetting.DefaultLanguage' | translate}}</label>
                     <select class="form-select" id="exampleFormControlSelect1" ngModel name="SiteLanguage">
                               <option value="" selected disabled>Select..</option>
                               <option value="English">EN</option>
@@ -48,7 +48,7 @@
             </div>
             <div class="row">
                 <div class="col-12 text-md-end text-center">
-                    <button type="submit" [disabled]="SiteSettingData.invalid" class="btn btn-transparent border-primary mt-3 saveChanges">Save Changes</button>
+                    <button type="submit" [disabled]="SiteSettingData.invalid" class="btn btn-transparent border-primary mt-3 saveChanges">{{'siteSetting.SaveChangesBtn' | translate}}</button>
                 </div>
             </div>
         </form>

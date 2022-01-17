@@ -1,0 +1,11 @@
+{
+  "header":{
+      "LanguageList":[
+        "English"
+        ,"Arabic"
+      ],
+      "hello":"Hi.. Super Admin",
+      "profile":"Profile",
+      "logOut":"Log Out"
+  }
+}

@@ -1,3 +1,4 @@
+import { TranslateService } from '@ngx-translate/core';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class SidebarComponent implements OnInit {
   img:string ="assets/Images/midanlogo.png";
 
-  constructor() { }
+  constructor(private translate:TranslateService) { }
 
   ngOnInit(): void {
   }

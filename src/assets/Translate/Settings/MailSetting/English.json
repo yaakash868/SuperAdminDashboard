@@ -1,0 +1,13 @@
+{
+  "mailSetting":{
+    "MailDriver":"Mail Driver",
+    "MailHost":"Mail Host",
+    "MailPort":"Mail Port",
+    "MailUsername":"Mail Username",
+    "MailPassword":"Mail Password",
+    "MailEncryption":"MailEncryption",
+    "MailFromAddress":"Mail From Address",
+    "MailFromName":"Mail From Name",
+    "SendTestMail":"Send Test Mail"
+  }
+}

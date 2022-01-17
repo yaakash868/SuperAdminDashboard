@@ -1,3 +1,4 @@
+import { TranslateService } from '@ngx-translate/core';
 import { Component, OnInit } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { PlanModel,PlanDurationModel } from '../Models/PlanModel';
@@ -12,7 +13,7 @@ export class PlanComponent implements OnInit {
   closeResult2 = '';
   PlanList:PlanModel[]=[];
   planDurationList:PlanDurationModel[]=[];
-  constructor(private modalService: NgbModal, private modalService1: NgbModal, private modalService2: NgbModal) {
+  constructor(private modalService: NgbModal, private translate:TranslateService ,private modalService1: NgbModal, private modalService2: NgbModal) {
     this.PlanList = <PlanModel[]>JSON.parse(<string>sessionStorage.getItem("PlanList"));
     this.planDurationList = <PlanDurationModel[]>(JSON.parse(<string>sessionStorage.getItem("planDurationList")));
    }

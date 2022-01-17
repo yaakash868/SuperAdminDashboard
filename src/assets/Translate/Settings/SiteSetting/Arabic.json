@@ -1,0 +1,13 @@
+{
+  "siteSetting":{
+    "Logo":"شعار",
+    "TitleText":"نص العنوان",
+    "FooterTitle1":"عنوان التذييل 1",
+    "FooterLink1":"رابط التذييل 1",
+    "FooterTitle2":"عنوان التذييل 2",
+    "FooterLink2":"رابط التذييل 2",
+    "FooterText":"نص التذييل",
+    "DefaultLanguage":"اللغة الافتراضية",
+    "SaveChangesBtn":"حفظ التغييرات"
+  }
+}

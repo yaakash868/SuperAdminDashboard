@@ -1,0 +1,19 @@
+{
+  "planRequest":{
+    "Title":"Plan Request",
+    "EmptyRecordMessage":"Currently no plan request is there",
+    "SuperAdmin":"Super Admin",
+    "Client":"Client",
+    "Employee":"Employee",
+    "ApproveRequestTooltip":"Approve Request",
+    "CancelRequestTooltip":"Cancel Request",
+    "SuccessFulModal":{
+      "Message":"Your request has been submitted successfully",
+      "OkBtn":"OK"
+    },
+    "UnSuccessFulModal":{
+      "Message":"Your request has been cancelled successfully",
+      "OkBtn":"OK"
+    }
+  }
+}

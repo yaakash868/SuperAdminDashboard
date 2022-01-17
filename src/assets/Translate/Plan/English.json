@@ -1,0 +1,36 @@
+{
+  "plan":{
+    "Title":"Plan",
+    "AddPlanTooltip":"Create New Plan",
+    "AddPlan":{
+      "Title":"Create New Plan",
+      "SaveBtn":"Save"
+    },
+    "Common":{
+      "Name":"Name",
+      "NamePlaceHolder":"Enter Plan Name.",
+      "Price":"Price",
+      "PricePlaceHolder":"Enter Plan Price.",
+      "PriceException":"Minimum price should not be negative",
+      "MaximumEmployee":"Maximum Employee",
+      "MaximumEmployeeException":"range should be between 1 to 500",
+      "MaximumClient":"Maximum Client",
+      "MaximumClientException":"range should be between 1 to 500",
+      "Duration":"Duration",
+      "Image":"Image",
+      "Description":"Description"
+    },
+    "EditPlanTooltip":"Edit",
+    "EditPlan":{
+      "Title":"Edit Plan",
+      "UpdateBtn":"Update"
+    },
+    "SendPlanReqestTooltip":"Send Plan Request",
+    "SendPlanRequest":{
+      "Title":"Plan Request",
+      "Message":"Your request has successfully sent."
+    },
+    "Employee":"Employee",
+    "Client":"Client"
+  }
+}

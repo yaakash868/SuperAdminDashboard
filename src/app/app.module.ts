@@ -1,3 +1,4 @@
+import { LanguageTranslateModule } from './lang-translate.module';
 import { NgModule, Component } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -12,11 +13,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatTabsModule } from '@angular/material/tabs';
 import {MatIconModule} from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SiteSettingComponent } from './site-setting/site-setting.component';
+import { SiteSettingComponent } from './setting/site-setting/site-setting.component';
 import { HeaderComponent } from './Layout/header/header.component';
 import { FooterComponent } from './Layout/footer/footer.component';
 import { SidebarComponent } from './Layout/sidebar/sidebar.component';
-import { MailSettingComponent } from './mail-setting/mail-setting.component';
+import { MailSettingComponent } from './setting/mail-setting/mail-setting.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { MailSettingComponent } from './mail-setting/mail-setting.component';
     MatTabsModule,
     BrowserAnimationsModule,
     MatTabsModule,
-    MatIconModule
+    MatIconModule,
+    LanguageTranslateModule
   ],
   providers: [],
   bootstrap: [AppComponent]

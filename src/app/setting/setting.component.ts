@@ -1,3 +1,4 @@
+import { TranslateService } from '@ngx-translate/core';
 import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-setting',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SettingComponent implements OnInit {
 
-  constructor() { }
+  constructor(private translate:TranslateService) { }
 
   ngOnInit(): void {
   }

@@ -1,6 +1,6 @@
+import { TranslateService } from '@ngx-translate/core';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import * as ApexCharts from 'apexcharts';
-import { Chart } from 'chart.js';
 import { PlanDurationModel,PlanModel } from '../Models/PlanModel';
 import { UserModel } from '../Models/UserModel';
 import { NgbDatepicker } from '@ng-bootstrap/ng-bootstrap';
@@ -23,7 +23,7 @@ mostPurchasePlan:String = "Gold";
   ctx: any;
   @ViewChild('mychart') mychart:any;
 
-  constructor(private calender:NgbCalendar) {
+  constructor(private calender:NgbCalendar,private service:TranslateService) {
     this.model = this.calender.getToday();
   }
 

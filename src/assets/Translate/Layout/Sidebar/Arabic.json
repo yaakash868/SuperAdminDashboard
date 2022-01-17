@@ -1,0 +1,9 @@
+{
+  "sidebar":{
+    "Dashboard":"لوحة القيادة",
+    "User":"مستخدم",
+    "Plan":"يخطط",
+    "PlanRequest":"طلب خطة",
+    "Settings":"إعدادات"
+  }
+}
