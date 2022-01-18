@@ -1,0 +1,86 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+
+.card-header h1 {
+  color: #7987a1;
+  text-align: center;
+  text-decoration: underline;
+  text-decoration-thickness: 5px;
+  font-size: 25px;
+  font-weight: bolder;
+  text-transform: uppercase;
+  text-decoration-color: #7987a1;
+}
+
+.card-header {
+  background-color: rgb(10, 17, 34);
+  border-bottom: 1px solid rgb(23, 35, 64);
+}
+
+.card-body {
+  background-color: rgb(12, 20, 39);
+  padding-bottom: 5px;
+  text-align: center;
+}
+
+.card-footer {
+  background-color: rgb(10, 17, 34);
+  text-align: center;
+}
+
+.card {
+  margin-bottom: 0%;
+  border: 1px solid rgb(23, 35, 64);
+}
+
+label {
+  font-size: 18px;
+  font-weight: bolder;
+  color: #7987a1;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  box-shadow: 0px 0px 3px 3px #6571ff;
+  padding: 0px;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+  border: 2px solid #6571ff;
+}
+
+.input-group-text {
+  border: 2px solid #6571ff;
+  border-left: none;
+}
+
+input[type="password"] {
+  border-right: none;
+}
+
+.form-control::placeholder {
+  font-size: 14px;
+  color: grey;
+  font-weight: bolder;
+}
+
+.form-control {
+  padding: 0px;
+}
+
+.register {
+  color: #7987a1;
+  font-size: 17px;
+  font-weight: bolder;
+  font-family: 'Times New Roman', Times, serif;
+}
+.maincls{
+  background-color: #070d19;
+}

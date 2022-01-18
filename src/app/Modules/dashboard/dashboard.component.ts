@@ -1,8 +1,9 @@
 import { TranslateService } from '@ngx-translate/core';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import * as ApexCharts from 'apexcharts';
-import { PlanDurationModel,PlanModel } from '../Models/PlanModel';
-import { UserModel } from '../Models/UserModel';
+import * as $ from "jquery";
+import { PlanDurationModel,PlanModel } from '../../Models/PlanModel';
+import { UserModel } from '../../Models/UserModel';
 import { NgbDatepicker } from '@ng-bootstrap/ng-bootstrap';
 import {NgbDateStruct,NgbCalendar} from '@ng-bootstrap/ng-bootstrap';
 @Component({

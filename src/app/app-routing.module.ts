@@ -1,25 +1,16 @@
+import { RegistrationComponent } from './registration/registration.component';
+import { SuperAdminDashboardModule } from './Modules/super-admin/SuperAdminDashboard.module';
+import { LoginComponent } from './login/login.component';
 import { NgModule,Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { UserComponent } from './user/user.component';
-import { PlanComponent } from './plan/plan.component';
-import { PlanRequestComponent } from './plan-request/plan-request.component';
-import { SettingComponent } from './setting/setting.component';
-import { AppComponent } from './app.component';
 const appRoute:Routes = [
-  {path:"", redirectTo:"Dashboard", pathMatch:'full'},
-  {path:"Dashboard",component:DashboardComponent},
-  {path:"User", component:UserComponent},
-  {path:"Plans", component:PlanComponent},
-  {path:"PlanRequest", component:PlanRequestComponent},
-  {path:"Setting", component:SettingComponent},
-  {path:"**",component:DashboardComponent}
+  {path:"", component:LoginComponent},
+  {path:"Registeration",component:RegistrationComponent},
+  {path:"**", component:LoginComponent}
    ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(appRoute)],
-  exports: [RouterModule],
-  bootstrap: [AppComponent]
+  imports: [RouterModule.forRoot(appRoute),SuperAdminDashboardModule],
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }

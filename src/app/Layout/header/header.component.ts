@@ -12,15 +12,19 @@ browserLang='';
 selectedLanguageId:number = 0;
   constructor(public translate:TranslateService) {
     this.LanguageList = <string[]>JSON.parse(<string>sessionStorage.getItem("LanguageList"));
+    console.log("hey this is header language list",this.LanguageList);
     translate.addLangs(this.LanguageList);
     this.languageChanged();
   }
 
   onSelectLanguage(languageId:number){
+    if(this.selectedLanguageId != languageId)
+    {
     sessionStorage.setItem("SelectedLanguageId",JSON.stringify(languageId));
     this.selectedLanguageId = languageId;
     this.languageChanged();
     this.changeStyle();
+    }
   }
   ngOnInit(): void {
   }
@@ -42,17 +46,18 @@ selectedLanguageId:number = 0;
     console.log("Style changed");
 
     if(this.selectedLanguageId==0){
-      l.id="ltrStyle";
+      l.className="ltrStyle";
       l.href="../../../assets/css/demo2/style.css";
-      $('#rtlStyle').remove();
+      $('.rtlStyle').remove();
       $("html").attr("dir","ltr");
     }
     else{
-      l.id="rtlStyle";
+      l.className="rtlStyle";
       l.href="../../../assets/css/demo2/style-rtl.css";
-      $('#ltrStyle').remove();
+      $('.ltrStyle').remove();
       $("html").attr("dir","rtl");
     }
+
     document.head.appendChild(l);
   }
 

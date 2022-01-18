@@ -1,24 +1,23 @@
+import { RegistrationComponent } from './registration/registration.component';
+import { SuperAdminDashboardModule } from './Modules/super-admin/SuperAdminDashboard.module';
 import { LanguageTranslateModule } from './lang-translate.module';
 import { NgModule, Component } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { UserComponent } from './user/user.component';
-import { PlanComponent } from './plan/plan.component';
-import { PlanRequestComponent } from './plan-request/plan-request.component';
-import { SettingComponent } from './setting/setting.component';
+import { DashboardComponent } from './Modules/dashboard/dashboard.component';
+import { UserComponent } from './Modules/user/user.component';
+import { PlanComponent } from './Modules/plan/plan.component';
+import { PlanRequestComponent } from './Modules/plan-request/plan-request.component';
+import { SettingComponent } from './Modules/setting/setting.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatTabsModule } from '@angular/material/tabs';
 import {MatIconModule} from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SiteSettingComponent } from './setting/site-setting/site-setting.component';
-import { HeaderComponent } from './Layout/header/header.component';
-import { FooterComponent } from './Layout/footer/footer.component';
-import { SidebarComponent } from './Layout/sidebar/sidebar.component';
-import { MailSettingComponent } from './setting/mail-setting/mail-setting.component';
-
+import { SiteSettingComponent } from './Modules/setting/site-setting/site-setting.component';
+import { MailSettingComponent } from './Modules/setting/mail-setting/mail-setting.component';
+import { LoginComponent } from './login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,10 +27,9 @@ import { MailSettingComponent } from './setting/mail-setting/mail-setting.compon
     PlanRequestComponent,
     SettingComponent,
     SiteSettingComponent,
-    HeaderComponent,
-    FooterComponent,
-    SidebarComponent,
-    MailSettingComponent
+    MailSettingComponent,
+    LoginComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +40,8 @@ import { MailSettingComponent } from './setting/mail-setting/mail-setting.compon
     BrowserAnimationsModule,
     MatTabsModule,
     MatIconModule,
-    LanguageTranslateModule
+    LanguageTranslateModule,
+    SuperAdminDashboardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

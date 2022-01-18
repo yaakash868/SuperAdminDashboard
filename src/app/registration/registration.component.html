@@ -1,0 +1,76 @@
+
+<div class="maincls">
+  <div class="container-fluid">
+      <div class="row align-items-center" style="min-height: 100vh">
+          <div class="col-xxl-4 col-xl-4 col-lg-3 col-md-2"></div>
+          <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-8 col-12 px-5 maincol">
+              <div class="card">
+                  <div class="card-header py-3">
+                      <h1><i class="link-icon" data-feather="user"></i>Registration</h1>
+                  </div>
+                  <div class="card-body">
+                      <form action="" autocomplete="off">
+                          <div class="row mb-3">
+                              <div class="col-12">
+                                  <input type="text" id="name" class="form-control" placeholder="Enter the Username.">
+                              </div>
+                          </div>
+                          <div class="row mb-3">
+                              <div class="col-12">
+                                  <input type="email" id="email" class="form-control" placeholder="Enter the Email.">
+                              </div>
+                          </div>
+                          <div class="row mb-3">
+                              <div class="col-12">
+                                  <div class="input-group">
+                                      <input type="password" name="password" id="password" class="form-control" placeholder="Enter the password.">
+                                      <span class="input-group-text" onclick="ShowPassword()">
+                                          <i class="link-icon" data-feather="user"></i>
+                                          <i class="fas fa-eye-slash d-none" id="hide_eye"></i>
+                                        </span>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="row mb-3">
+                              <div class="col-12">
+                                  <div class="input-group">
+                                      <input type="password" name="confirmpassword" id="confirmpassword" class="form-control" placeholder="Enter the confirm password.">
+                                      <span class="input-group-text" onclick="ShowPassword2()">
+                                          <i class="fas fa-eye" id="show_eye1"></i>
+                                          <i class="fas fa-eye-slash d-none" id="hide_eye1"></i>
+                                        </span>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-12 text-center">
+                                  <button type="submit" (click)="goToLogin()" class="btn btn-outline-danger login"><i class="fas fa-sign-in-alt"></i> Register</button>
+                              </div>
+                          </div>
+                      </form>
+                      <div class="text-center register mt-1">Already have an account? <a routerLink="../" href="Userlogin.html">Login</a></div>
+                  </div>
+                  <!-- <div class="card-footer">
+                      <div class="row mt-2 mb-2">
+                          <div class="col-12">
+                              <button type="button" class="btn btn-outline-warning admin"><i class="fas fa-user-shield"></i> Super Admin Login</button>
+                          </div>
+                      </div>
+                      <div class="row mb-2">
+                          <div class="col-12">
+                              <button type="button" class="btn btn-outline-primary company"><i class="fas fa-industry"></i> Company Login</button>
+                          </div>
+                      </div>
+                      <div class="row mb-2">
+                          <div class="col-12">
+                              <button type="button" class="btn btn-success admin"><i class="fas fa-user"></i> User Login</button>
+                          </div>
+                      </div>
+                  </div> -->
+              </div>
+          </div>
+          <div class="col-xxl-4 col-xl-4 col-lg-3 col-md-2"></div>
+      </div>
+  </div>
+
+</div>

@@ -1,7 +1,7 @@
 import { TranslateService } from '@ngx-translate/core';
 import { Component, OnInit } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
-import { PlanModel,PlanDurationModel } from '../Models/PlanModel';
+import { PlanModel,PlanDurationModel } from '../../Models/PlanModel';
 @Component({
   selector: 'app-plan',
   templateUrl: './plan.component.html',

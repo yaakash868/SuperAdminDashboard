@@ -1,11 +1,11 @@
 import { TranslateService } from '@ngx-translate/core';
-import { PlanModel,PlanDurationModel } from './../Models/PlanModel';
+import { PlanModel,PlanDurationModel } from '../../Models/PlanModel';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Data } from '@angular/router';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
-import { UserModel } from '../Models/UserModel';
-import { DateTimeModel } from '../Common/DateTimeModel';
+import { UserModel } from '../../Models/UserModel';
+import { DateTimeModel } from '../../Common/DateTimeModel';
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
