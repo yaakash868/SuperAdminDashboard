@@ -1,3 +1,4 @@
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
@@ -10,9 +11,8 @@ export class HeaderComponent implements OnInit, AfterViewInit {
 LanguageList:string[]=[];
 browserLang='';
 selectedLanguageId:number = 0;
-  constructor(public translate:TranslateService) {
+  constructor(private translate:TranslateService, private ngxLoader:NgxUiLoaderService) {
     this.LanguageList = <string[]>JSON.parse(<string>sessionStorage.getItem("LanguageList"));
-    console.log("hey this is header language list",this.LanguageList);
     translate.addLangs(this.LanguageList);
     this.languageChanged();
   }
@@ -20,16 +20,28 @@ selectedLanguageId:number = 0;
   onSelectLanguage(languageId:number){
     if(this.selectedLanguageId != languageId)
     {
-    sessionStorage.setItem("SelectedLanguageId",JSON.stringify(languageId));
-    this.selectedLanguageId = languageId;
-    this.languageChanged();
-    this.changeStyle();
+    this.ngxLoader.start();
+    setTimeout(() => {
+      sessionStorage.setItem("SelectedLanguageId",JSON.stringify(languageId));
+      this.selectedLanguageId = languageId;
+      this.languageChanged();
+      this.changeStyle();
+      this.ngxLoader.stop();
+    }, 1000);
     }
   }
   ngOnInit(): void {
   }
   getSelectedLanguage():string{
     return this.LanguageList[<number>JSON.parse(<string>sessionStorage.getItem("SelectedLanguageId"))];
+  }
+  getSelectedLanguageFromJSON(){
+    let language='';
+    this.translate.get(['header']).subscribe(translations=>{
+      language=translations.header.LanguageList[this.selectedLanguageId];
+      console.log(translations);
+    });
+    return language;
   }
   getFlagByLanguageId(id:number){
     return id==0?"flag-icon flag-icon-us":"flag-icon flag-icon-pk";

@@ -18,6 +18,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SiteSettingComponent } from './Modules/setting/site-setting/site-setting.component';
 import { MailSettingComponent } from './Modules/setting/mail-setting/mail-setting.component';
 import { LoginComponent } from './login/login.component';
+import {NgxUiLoaderModule,NgxUiLoaderRouterModule} from 'ngx-ui-loader';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +43,12 @@ import { LoginComponent } from './login/login.component';
     MatTabsModule,
     MatIconModule,
     LanguageTranslateModule,
-    SuperAdminDashboardModule
+    SuperAdminDashboardModule,
+    NgxUiLoaderModule,
+    NgxUiLoaderRouterModule
+    // .forRoot({
+    //   exclude:["/SuperAdminDashboard/Plans"]
+    // })
   ],
   providers: [],
   bootstrap: [AppComponent]

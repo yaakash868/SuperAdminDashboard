@@ -67,5 +67,13 @@
     </div>
 </div> -->
 <!-- <app-login></app-login> -->
-<router-outlet></router-outlet>
+<ngx-ui-loader fgsColor="#6571ff"
+  fgsType="square-jelly-box"
+  text="Please Wait..."
+  pbColor="#6571ff"
+  textColor="#6571ff"></ngx-ui-loader>
+<div ngxUiLoaderBlurred (blur)="6">
+  <router-outlet></router-outlet>
+
+</div>
 <!-- <app-super-admin></app-super-admin> -->

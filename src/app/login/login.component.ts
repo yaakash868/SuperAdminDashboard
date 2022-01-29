@@ -16,6 +16,9 @@ export class LoginComponent implements OnInit {
       window.location.reload();
     });
   }
+  onComanyLogin(){
+    window.location.href = "http://localhost:4200/";
+  }
   goToSignUp(){
     console.log("login succesfull");
     this.router.navigate(['/Registeration']);

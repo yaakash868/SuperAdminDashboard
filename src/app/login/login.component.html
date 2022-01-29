@@ -1,74 +1,39 @@
-<section class="h-100 gradient-form" style="background-color: #eee;">
-  <div class="container py-5 h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-xl-10">
-        <div class="card rounded-3 text-black">
-          <div class="row g-0">
-            <div class="col-lg-6">
-              <div class="card-body p-md-5 mx-md-4">
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-7 col-lg-5">
+                <div class="login-wrap p-4 p-md-5">
+                    <div class="icon d-flex align-items-center justify-content-center">
+                        <span><i class="fa fa-user" aria-hidden="true"></i></span>
+                    </div>
+                    <h3 class="text-center mb-3">User Login</h3>
+                    <form action="" class="login-form" (ngSubmit)="passLoginData(submitForm)" #submitForm="ngForm">
+                        <div class="mb-2">
+                            <input type="email" class="form-control" id="floatingInput" placeholder="Email">
+                        </div>
+                        <div class="mb-2">
+                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                        </div>
+                        <div class="mb-1 text-center">
+                            <button type="button" class="btn rounded button">Login</button>
+                        </div>
+                        <div class="text-center">
+                            <p>Don't have an account?..<a href="" (click)="goToSignUp()">Register</a></p>
+                        </div>
+                    </form>
+                    <hr>
 
-                <div class="text-center">
-                  <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp" style="width: 185px;" alt="logo">
-                  <h4 class="mt-1 mb-5 pb-1">We are The Lotus Team</h4>
+                    <div class="d-md-grid gap-2 mb-2 text-center">
+                        <button type="button" [disabled]="submitForm.invalid" (click)="onLogin()" class="btn rounded button"><i class="fa fa-user-circle" aria-hidden="true"></i> Super Admin Login</button>
+                    </div>
+                    <div class="d-md-grid gap-2 mb-2 text-center">
+                        <button type="button" class="btn rounded button" (click)="onComanyLogin()"><i class="fa fa-industry" aria-hidden="true"></i> Company Login</button>
+                    </div>
+                    <div class="d-md-grid gap-2 text-center">
+                        <button type="button" class="btn rounded button"><i class="fa fa-users" aria-hidden="true"></i> User Login</button>
+                    </div>
                 </div>
-
-                <form (ngSubmit)="passLoginData(submitForm)" #submitForm="ngForm">
-                  <p>Please login to your account</p>
-
-                  <div class="form-outline mb-4">
-                    <input type="email"
-                      id="form2Example11"
-                      class="form-control"
-                      placeholder="Phone number or email address"
-                      email
-                      required/>
-                    <label class="form-label" for="form2Example11">Username</label>
-                  </div>
-
-                  <div class="form-outline mb-4">
-                    <input type="password"
-                      id="form2Example22"
-                      class="form-control"
-                      required/>
-                    <label class="form-label" for="form2Example22">Password</label>
-                  </div>
-
-                  <div class="card-footer pt-1 mb-5 pb-1">
-                    <div class="row mt-2 mb-2">
-                      <div class="col-12">
-                          <button type="button" [disabled]="submitForm.invalid" (click)="onLogin()" class="btn btn-outline-warning admin"><i class="fas fa-user-shield"></i> Super Admin Login</button>
-                      </div>
-                  </div>
-                  <div class="row mb-2">
-                      <div class="col-12">
-                          <button type="button" class="btn btn-outline-primary company"><i class="fas fa-industry"></i> Company Login</button>
-                      </div>
-                  </div>
-                  <div class="row mb-2">
-                      <div class="col-12">
-                          <button type="button" class="btn btn-success admin"><i class="fas fa-user"></i> User Login</button>
-                      </div>
-                  </div>
-                  </div>
-
-                </form>
-                  <div class="d-flex align-items-center justify-content-center pb-4">
-                    <p class="mb-0 me-2">Don't have an account?</p>
-                    <button type="button" (click)="goToSignUp()" class="btn btn-outline-danger">Create new</button>
-                  </div>
-
-
-              </div>
             </div>
-            <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
-              <div class="text-white px-3 py-4 p-md-5 mx-md-4">
-                <h4 class="mb-4">We are more than just a company</h4>
-                <p class="small mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
 </section>

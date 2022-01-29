@@ -39,7 +39,15 @@ const route:Routes = [
 //     MailSettingComponent,
     SuperAdminComponent,
   ],
-  imports: [RouterModule.forChild(route),LanguageTranslateModule,CommonModule],
-  exports: [SuperAdminComponent,HeaderComponent,SidebarComponent,FooterComponent],
+  imports: [
+    RouterModule.forChild(route),
+    LanguageTranslateModule,
+    CommonModule
+  ],
+  exports: [
+    SuperAdminComponent,
+    HeaderComponent,
+    SidebarComponent,
+    FooterComponent],
 })
 export class SuperAdminDashboardModule { }
